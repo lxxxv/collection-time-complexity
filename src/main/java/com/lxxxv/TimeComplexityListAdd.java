@@ -36,6 +36,8 @@ public class TimeComplexityListAdd implements ITimeComplexity
     @Benchmark
     public void addArrayList(Blackhole bl)
     {
+        benchArrayList.clear();
+
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
@@ -48,6 +50,8 @@ public class TimeComplexityListAdd implements ITimeComplexity
     @Benchmark
     public void addLinkedList(Blackhole bl)
     {
+        benchLinkedList.clear();
+
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
@@ -60,6 +64,8 @@ public class TimeComplexityListAdd implements ITimeComplexity
     @Benchmark
     public void addVector(Blackhole bl)
     {
+        benchVector.clear();
+
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
