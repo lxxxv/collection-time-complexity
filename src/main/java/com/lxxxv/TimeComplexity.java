@@ -31,11 +31,17 @@ public class TimeComplexity
          * The runtime options for the JMH are available with "-h":
          *    $ java -jar target/benchmarks.jar -h
          *
+         *
          * b) Via the Java API:
          *    (see the JMH homepage for possible caveats when running from IDE:
          *      http://openjdk.java.net/projects/code-tools/jmh/)
          */
 
+        // java -jar .\target\benchmarks.jar TimeComplexityListAdd ;
+        // java -jar .\target\benchmarks.jar TimeComplexityListDel ;
+        // java -jar .\target\benchmarks.jar TimeComplexityListGet ;
+        // java -jar .\target\benchmarks.jar TimeComplexityListSort
+        
         Options opt = new OptionsBuilder()
                 .include(TimeComplexity.class.getSimpleName())
                 .forks(1)
