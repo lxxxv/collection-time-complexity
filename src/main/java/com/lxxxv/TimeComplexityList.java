@@ -10,57 +10,63 @@ import java.util.*;
 
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class TimeComplexityList
 {
-    public int LOOP_COUNT = 1000;
+    public int LOOP_COUNT = 100000;
+
+    Random rm;
 
     public List<String> benchArrayList;
     public List<String> benchLinkedList;
     public List<String> benchVector;
 
+    public List<String> benchList;
+
     @Setup
     public void setUp()
     {
+        rm = new Random();
+
         benchArrayList = new ArrayList<>();
         benchLinkedList = new LinkedList<>();
         benchVector = new Vector<>();
 
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchArrayList.add(Integer.toString(loop));
-            benchLinkedList.add(Integer.toString(loop));
-            benchVector.add(Integer.toString(loop));
+            benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+            benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+            benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
         }
     }
 
     @Benchmark
     public void addArrayList()
     {
-        benchArrayList = new ArrayList<>();
+        benchList = new ArrayList<>();
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchArrayList.add(Integer.toString(loop));
+            benchList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
         }
     }
 
     @Benchmark
     public void addLinkedList()
     {
-        benchLinkedList = new LinkedList<>();
+        benchList = new LinkedList<>();
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchLinkedList.add(Integer.toString(loop));
+            benchList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
         }
     }
 
     @Benchmark
     public void addVector()
     {
-        benchVector = new Vector<>();
+        benchList = new Vector<>();
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchVector.add(Integer.toString(loop));
+            benchList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
         }
     }
 
@@ -91,6 +97,51 @@ public class TimeComplexityList
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             result = benchVector.get(loop);
+        }
+    }
+
+    @Benchmark
+    public void sortArrayList()
+    {
+        Collections.sort(benchArrayList);
+    }
+
+    @Benchmark
+    public void sortLinkedList()
+    {
+        Collections.sort(benchLinkedList);
+    }
+
+    @Benchmark
+    public void sortVector()
+    {
+        Collections.sort(benchVector);
+    }
+
+    @Benchmark
+    public void delArrayList()
+    {
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
+            benchArrayList.remove(loop);
+        }
+    }
+
+    @Benchmark
+    public void delLinkedList()
+    {
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
+            benchLinkedList.remove(loop);
+        }
+    }
+
+    @Benchmark
+    public void delVector()
+    {
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
+            benchVector.remove(loop);
         }
     }
 
