@@ -24,12 +24,6 @@ public class MapAdd
     public Map<String, String> benchIdentityHashMap;
     public Map<String, String> benchWeakHashMap;
 
-    @Setup
-    public void setUp()
-    {
-
-    }
-
     @Benchmark
     public void addHashMap(Blackhole bl)
     {
@@ -103,15 +97,6 @@ public class MapAdd
                 bl.consume(Sender.getData());
             }
         ).start();
-    }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(MapAdd.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
     }
 }
 

@@ -96,13 +96,4 @@ public class MapGet
             bl.consume(benchWeakHashMap.get(key));
         }
     }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(MapGet.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
-    }
 }

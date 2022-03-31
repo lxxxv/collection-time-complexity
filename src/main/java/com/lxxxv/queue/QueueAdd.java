@@ -1,6 +1,7 @@
 package com.lxxxv.queue;
 
 import com.lxxxv.CallBackAdd;
+import com.lxxxv.Policy;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -27,12 +28,6 @@ public class QueueAdd
     public Queue<String> benchPriorityBlockingQueue;
     public Queue<String> benchSynchronousQueue;
 
-    @Setup
-    public void setUp()
-    {
-
-    }
-
     @Benchmark
     public void addPriorityQueue(Blackhole bl)
     {
@@ -51,16 +46,22 @@ public class QueueAdd
     @Benchmark
     public void addArrayBlockingQueue(Blackhole bl)
     {
-//        benchArrayBlockingQueue = new ArrayBlockingQueue<>();
-//
-//        new CallBackAdd
-//        (
-//            (Sender)->
-//            {
-//                benchArrayBlockingQueue.add(Sender.getData());
-//                bl.consume(Sender.getData());
-//            }
-//        ).start();
+        // https://codechacha.com/ko/java-arrayblockingqueue/
+        // ArrayBlockingQueue는 BlockingQueue 인터페이스를 구현
+        // Queue를 생성할 때 크기를 설정하며 내부적으로 배열을 사용하여 아이템을 저장
+        // 동시성에 안전하여 멀티 쓰레드에서 synchronized 없이 사용 가능
+        // 아이템을 꺼낼 때 비어있으며 추가될 때까지 기다림
+        // 아이템을 추가할 때 Queue가 가득차있으면 Exception이 발생하거나 일정 시간 기다릴 수 있음
+        benchArrayBlockingQueue = new ArrayBlockingQueue<>(Policy.LOOP_COUNT);
+
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchArrayBlockingQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -76,21 +77,6 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
-    }
-
-    @Benchmark
-    public void addDelayQueue(Blackhole bl)
-    {
-//        benchDelayQueue = new DelayQueue<>();
-//
-//        new CallBackAdd
-//        (
-//            (Sender)->
-//            {
-//                benchDelayQueue.add(Sender.getData());
-//                bl.consume(Sender.getData());
-//            }
-//        ).start();
     }
 
     @Benchmark
@@ -151,14 +137,5 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
-    }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(QueueAdd.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
     }
 }

@@ -72,13 +72,4 @@ public class ListGet
             bl.consume(result);
         }
     }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(ListGet.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
-    }
 }

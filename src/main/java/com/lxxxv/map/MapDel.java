@@ -139,13 +139,4 @@ public class MapDel
             bl.consume(key);
         }
     }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(MapDel.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
-    }
 }

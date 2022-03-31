@@ -1,6 +1,7 @@
 package com.lxxxv.queue;
 
 import com.lxxxv.CallBackAdd;
+import com.lxxxv.Policy;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -27,12 +28,6 @@ public class QueueDel
     public Queue<String> benchPriorityBlockingQueue;
     public Queue<String> benchSynchronousQueue;
 
-    @Setup
-    public void setUp()
-    {
-
-    }
-
     @Benchmark
     public void delPriorityQueue(Blackhole bl)
     {
@@ -56,15 +51,21 @@ public class QueueDel
     @Benchmark
     public void delArrayBlockingQueue(Blackhole bl)
     {
-//        benchArrayBlockingQueue = new ArrayBlockingQueue<>();
-//
-//        new CallBackAdd
-//        (
-//            (Sender)->
-//            {
-//                benchArrayBlockingQueue.add(Sender.getData());
-//            }
-//        ).start();
+        benchArrayBlockingQueue = new ArrayBlockingQueue<>(Policy.LOOP_COUNT);
+
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchArrayBlockingQueue.add(Sender.getData());
+            }
+        ).start();
+
+        while(benchArrayBlockingQueue.size() > 0)
+        {
+            benchArrayBlockingQueue.remove(0);
+            bl.consume(benchArrayBlockingQueue.size());
+        }
     }
 
     @Benchmark
@@ -85,20 +86,6 @@ public class QueueDel
             benchConcurrentLinkedQueue.remove(0);
             bl.consume(benchConcurrentLinkedQueue.size());
         }
-    }
-
-    @Benchmark
-    public void delDelayQueue(Blackhole bl)
-    {
-//        benchDelayQueue = new DelayQueue<>();
-//
-//        new CallBackAdd
-//        (
-//            (Sender)->
-//            {
-//                benchDelayQueue.add(Sender.getData());
-//            }
-//        ).start();
     }
 
     @Benchmark
@@ -179,14 +166,5 @@ public class QueueDel
             benchSynchronousQueue.remove(0);
             bl.consume(benchSynchronousQueue.size());
         }
-    }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(QueueDel.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
     }
 }

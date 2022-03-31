@@ -22,12 +22,6 @@ public class ListDel
     public List<String> benchLinkedList;
     public List<String> benchVector;
 
-    @Setup
-    public void setUp()
-    {
-
-    }
-
     @Benchmark
     public void delArrayList(Blackhole bl)
     {
@@ -86,14 +80,5 @@ public class ListDel
             benchVector.remove(0);
             bl.consume(benchVector.size());
         }
-    }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(ListDel.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
     }
 }

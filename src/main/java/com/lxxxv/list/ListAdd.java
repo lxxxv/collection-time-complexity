@@ -22,12 +22,6 @@ public class ListAdd
     public List<String> benchLinkedList;
     public List<String> benchVector;
 
-    @Setup
-    public void setUp()
-    {
-
-    }
-
     @Benchmark
     public void addArrayList(Blackhole bl)
     {
@@ -71,14 +65,5 @@ public class ListAdd
                 bl.consume(Sender.getData());
             }
         ).start();
-    }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(ListAdd.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
     }
 }

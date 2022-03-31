@@ -1,6 +1,7 @@
 package com.lxxxv.queue;
 
 import com.lxxxv.CallBackAdd;
+import com.lxxxv.Policy;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -27,12 +28,6 @@ public class QueueGet
     public Queue<String> benchPriorityBlockingQueue;
     public Queue<String> benchSynchronousQueue;
 
-    @Setup
-    public void setUp()
-    {
-
-    }
-
     @Benchmark
     public void getPriorityQueue(Blackhole bl)
     {
@@ -56,16 +51,21 @@ public class QueueGet
     @Benchmark
     public void getArrayBlockingQueue(Blackhole bl)
     {
-//        benchArrayBlockingQueue = new ArrayBlockingQueue<>();
-//
-//        new CallBackAdd
-//        (
-//            (Sender)->
-//            {
-//                benchArrayBlockingQueue.add(Sender.getData());
-//                bl.consume(Sender.getData());
-//            }
-//        ).start();
+        benchArrayBlockingQueue = new ArrayBlockingQueue<>(Policy.LOOP_COUNT);
+
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchArrayBlockingQueue.add(Sender.getData());
+            }
+        ).start();
+
+        while(benchArrayBlockingQueue.size() > 0)
+        {
+            benchArrayBlockingQueue.poll();
+            bl.consume(benchArrayBlockingQueue.size());
+        }
     }
 
     @Benchmark
@@ -86,20 +86,6 @@ public class QueueGet
             benchConcurrentLinkedQueue.poll();
             bl.consume(benchConcurrentLinkedQueue.size());
         }
-    }
-
-    @Benchmark
-    public void getDelayQueue(Blackhole bl)
-    {
-//        benchDelayQueue = new DelayQueue<>();
-//
-//        new CallBackAdd
-//        (
-//            (Sender)->
-//            {
-//                benchDelayQueue.add(Sender.getData());
-//            }
-//        ).start();
     }
 
     @Benchmark
@@ -180,14 +166,5 @@ public class QueueGet
             benchSynchronousQueue.poll();
             bl.consume(benchSynchronousQueue.size());
         }
-    }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(QueueGet.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
     }
 }

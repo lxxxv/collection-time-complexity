@@ -63,13 +63,4 @@ public class ListSort
         Collections.sort(benchVector);
         bl.consume(benchVector.size());
     }
-
-    public static void main(String args[]) throws Exception
-    {
-        Options opt = new OptionsBuilder()
-                .include(ListSort.class.getSimpleName())
-                .build();
-
-        new Runner(opt).run();
-    }
 }
