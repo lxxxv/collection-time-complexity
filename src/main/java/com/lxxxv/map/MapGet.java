@@ -1,6 +1,6 @@
 package com.lxxxv.map;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class MapGet implements ITimeComplexity
+public class MapGet
 {
     Random rm;
 
@@ -37,16 +37,17 @@ public class MapGet implements ITimeComplexity
         benchIdentityHashMap = new IdentityHashMap<>();
         benchWeakHashMap = new WeakHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchHashMap.put(result, result);
-            benchTreeMap.put(result, result);
-            benchLinkedHashMap.put(result, result);
-            benchIdentityHashMap.put(result, result);
-            benchWeakHashMap.put(result, result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchHashMap.put(Sender.getData(), Sender.getData());
+                benchTreeMap.put(Sender.getData(), Sender.getData());
+                benchLinkedHashMap.put(Sender.getData(), Sender.getData());
+                benchIdentityHashMap.put(Sender.getData(), Sender.getData());
+                benchWeakHashMap.put(Sender.getData(), Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark

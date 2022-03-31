@@ -1,6 +1,6 @@
 package com.lxxxv.map;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class MapDel implements ITimeComplexity
+public class MapDel
 {
     Random rm;
 
@@ -37,12 +37,13 @@ public class MapDel implements ITimeComplexity
     {
         benchHashMap = new HashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchHashMap.put(result, result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchHashMap.put(Sender.getData(), Sender.getData());
+            }
+        ).start();
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchHashMap.keySet()) {keyList.add(key);}
@@ -58,12 +59,13 @@ public class MapDel implements ITimeComplexity
     {
         benchTreeMap = new TreeMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchTreeMap.put(result, result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchTreeMap.put(Sender.getData(), Sender.getData());
+            }
+        ).start();
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchTreeMap.keySet()) {keyList.add(key);}
@@ -79,12 +81,13 @@ public class MapDel implements ITimeComplexity
     {
         benchLinkedHashMap = new LinkedHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchLinkedHashMap.put(result, result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchLinkedHashMap.put(Sender.getData(), Sender.getData());
+            }
+        ).start();
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchLinkedHashMap.keySet()) {keyList.add(key);}
@@ -100,12 +103,13 @@ public class MapDel implements ITimeComplexity
     {
         benchIdentityHashMap = new IdentityHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchIdentityHashMap.put(result, result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchIdentityHashMap.put(Sender.getData(), Sender.getData());
+            }
+        ).start();
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchIdentityHashMap.keySet()) {keyList.add(key);}
@@ -121,12 +125,13 @@ public class MapDel implements ITimeComplexity
     {
         benchWeakHashMap = new WeakHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchWeakHashMap.put(result, result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchWeakHashMap.put(Sender.getData(), Sender.getData());
+            }
+        ).start();
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchWeakHashMap.keySet()) {keyList.add(key);}

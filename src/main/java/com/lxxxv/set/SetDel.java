@@ -1,6 +1,6 @@
 package com.lxxxv.set;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class SetDel implements ITimeComplexity
+public class SetDel
 {
 
 }

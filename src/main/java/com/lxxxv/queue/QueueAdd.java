@@ -1,6 +1,6 @@
 package com.lxxxv.queue;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,10 +16,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class QueueAdd implements ITimeComplexity
+public class QueueAdd
 {
-    Random rm;
-
     public Queue<String> benchPriorityQueue;
     public Queue<String> benchArrayBlockingQueue;
     public Queue<String> benchConcurrentLinkedQueue;
@@ -32,7 +30,7 @@ public class QueueAdd implements ITimeComplexity
     @Setup
     public void setUp()
     {
-        rm = new Random();
+
     }
 
     @Benchmark
@@ -40,27 +38,20 @@ public class QueueAdd implements ITimeComplexity
     {
         benchPriorityQueue = new PriorityQueue<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchPriorityQueue.add(result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchPriorityQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
     public void addArrayBlockingQueue(Blackhole bl)
     {
-//        benchArrayBlockingQueue = new ArrayBlockingQueue<>();
-//
-//        String result;
-//        for (int loop = 0; loop < LOOP_COUNT; loop++)
-//        {
-//            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-//            benchArrayBlockingQueue.add(result);
-//            bl.consume(result);
-//        }
+
     }
 
     @Benchmark
@@ -68,13 +59,14 @@ public class QueueAdd implements ITimeComplexity
     {
         benchConcurrentLinkedQueue = new ConcurrentLinkedQueue<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchConcurrentLinkedQueue.add(result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchConcurrentLinkedQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark

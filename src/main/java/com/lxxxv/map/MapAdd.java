@@ -1,6 +1,6 @@
 package com.lxxxv.map;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,10 +16,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class MapAdd implements ITimeComplexity
+public class MapAdd
 {
-    Random rm;
-
     public Map<String, String> benchHashMap;
     public Map<String, String> benchTreeMap;
     public Map<String, String> benchLinkedHashMap;
@@ -29,7 +27,7 @@ public class MapAdd implements ITimeComplexity
     @Setup
     public void setUp()
     {
-        rm = new Random();
+
     }
 
     @Benchmark
@@ -37,13 +35,14 @@ public class MapAdd implements ITimeComplexity
     {
         benchHashMap = new HashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchHashMap.put(result, result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchHashMap.put(Sender.getData(), Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -51,13 +50,14 @@ public class MapAdd implements ITimeComplexity
     {
         benchTreeMap = new TreeMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchTreeMap.put(result, result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchTreeMap.put(Sender.getData(), Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -65,13 +65,14 @@ public class MapAdd implements ITimeComplexity
     {
         benchLinkedHashMap = new LinkedHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchLinkedHashMap.put(result, result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchLinkedHashMap.put(Sender.getData(), Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -79,13 +80,14 @@ public class MapAdd implements ITimeComplexity
     {
         benchIdentityHashMap = new IdentityHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchIdentityHashMap.put(result, result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchIdentityHashMap.put(Sender.getData(), Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -93,13 +95,14 @@ public class MapAdd implements ITimeComplexity
     {
         benchWeakHashMap = new WeakHashMap<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchWeakHashMap.put(result, result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchWeakHashMap.put(Sender.getData(), Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     public static void main(String args[]) throws Exception

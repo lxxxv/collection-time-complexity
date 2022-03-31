@@ -1,6 +1,6 @@
 package com.lxxxv.list;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,10 +16,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class ListDel implements ITimeComplexity
+public class ListDel
 {
-    Random rm;
-
     public List<String> benchArrayList;
     public List<String> benchLinkedList;
     public List<String> benchVector;
@@ -27,7 +25,7 @@ public class ListDel implements ITimeComplexity
     @Setup
     public void setUp()
     {
-        rm = new Random();
+
     }
 
     @Benchmark
@@ -35,10 +33,13 @@ public class ListDel implements ITimeComplexity
     {
         benchArrayList = new ArrayList<>();
 
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchArrayList.add(Sender.getData());
+            }
+        ).start();
 
         while(benchArrayList.size() > 0)
         {
@@ -52,10 +53,13 @@ public class ListDel implements ITimeComplexity
     {
         benchLinkedList = new LinkedList<>();
 
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchLinkedList.add(Sender.getData());
+            }
+        ).start();
 
         while(benchLinkedList.size() > 0)
         {
@@ -69,10 +73,13 @@ public class ListDel implements ITimeComplexity
     {
         benchVector = new Vector<>();
 
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchVector.add(Sender.getData());
+            }
+        ).start();
 
         while(benchVector.size() > 0)
         {

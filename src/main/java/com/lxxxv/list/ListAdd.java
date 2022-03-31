@@ -1,6 +1,6 @@
 package com.lxxxv.list;
 
-import com.lxxxv.ITimeComplexity;
+import com.lxxxv.CallBackAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -16,10 +16,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class ListAdd implements ITimeComplexity
+public class ListAdd
 {
-    Random rm;
-
     public List<String> benchArrayList;
     public List<String> benchLinkedList;
     public List<String> benchVector;
@@ -27,7 +25,7 @@ public class ListAdd implements ITimeComplexity
     @Setup
     public void setUp()
     {
-        rm = new Random();
+
     }
 
     @Benchmark
@@ -35,13 +33,14 @@ public class ListAdd implements ITimeComplexity
     {
         benchArrayList = new ArrayList<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchArrayList.add(result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchArrayList.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -49,13 +48,14 @@ public class ListAdd implements ITimeComplexity
     {
         benchLinkedList = new LinkedList<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchLinkedList.add(result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchLinkedList.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
@@ -63,13 +63,14 @@ public class ListAdd implements ITimeComplexity
     {
         benchVector = new Vector<>();
 
-        String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
-        {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchVector.add(result);
-            bl.consume(result);
-        }
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchVector.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     public static void main(String args[]) throws Exception
