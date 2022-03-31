@@ -37,10 +37,22 @@ public class TimeComplexity
          *      http://openjdk.java.net/projects/code-tools/jmh/)
          */
 
-        // java -jar .\target\benchmarks.jar TimeComplexityListAdd ;
-        // java -jar .\target\benchmarks.jar TimeComplexityListDel ;
-        // java -jar .\target\benchmarks.jar TimeComplexityListGet ;
-        // java -jar .\target\benchmarks.jar TimeComplexityListSort
+        //java -jar .\target\benchmarks.jar DequeAdd ;
+        //java -jar .\target\benchmarks.jar DequeDel ;
+        //java -jar .\target\benchmarks.jar DequeGet ;
+        //java -jar .\target\benchmarks.jar ListAdd ;
+        //java -jar .\target\benchmarks.jar ListDel ;
+        //java -jar .\target\benchmarks.jar ListGet ;
+        //java -jar .\target\benchmarks.jar ListSort ;
+        //java -jar .\target\benchmarks.jar MapAdd ;
+        //java -jar .\target\benchmarks.jar MapDel ;
+        //java -jar .\target\benchmarks.jar MapGet ;
+        //java -jar .\target\benchmarks.jar QueueAdd ;
+        //java -jar .\target\benchmarks.jar QueueDel ;
+        //java -jar .\target\benchmarks.jar QueueGet ;
+        //java -jar .\target\benchmarks.jar SetAdd ;
+        //java -jar .\target\benchmarks.jar SetDel ;
+        //java -jar .\target\benchmarks.jar SetGet
 
         Options opt = new OptionsBuilder()
                 .include(TimeComplexity.class.getSimpleName())

@@ -16,6 +16,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
+@Warmup(iterations=2, time=2)
+@Measurement(iterations=2, time=2)
 public class DequeGet
 {
 
