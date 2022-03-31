@@ -41,7 +41,7 @@ public class TimeComplexity
         // java -jar .\target\benchmarks.jar TimeComplexityListDel ;
         // java -jar .\target\benchmarks.jar TimeComplexityListGet ;
         // java -jar .\target\benchmarks.jar TimeComplexityListSort
-        
+
         Options opt = new OptionsBuilder()
                 .include(TimeComplexity.class.getSimpleName())
                 .forks(1)
