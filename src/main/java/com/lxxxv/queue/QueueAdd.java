@@ -51,7 +51,16 @@ public class QueueAdd
     @Benchmark
     public void addArrayBlockingQueue(Blackhole bl)
     {
-
+//        benchArrayBlockingQueue = new ArrayBlockingQueue<>();
+//
+//        new CallBackAdd
+//        (
+//            (Sender)->
+//            {
+//                benchArrayBlockingQueue.add(Sender.getData());
+//                bl.consume(Sender.getData());
+//            }
+//        ).start();
     }
 
     @Benchmark
@@ -72,31 +81,76 @@ public class QueueAdd
     @Benchmark
     public void addDelayQueue(Blackhole bl)
     {
-
+//        benchDelayQueue = new DelayQueue<>();
+//
+//        new CallBackAdd
+//        (
+//            (Sender)->
+//            {
+//                benchDelayQueue.add(Sender.getData());
+//                bl.consume(Sender.getData());
+//            }
+//        ).start();
     }
 
     @Benchmark
     public void addLinkedBlockingQueue(Blackhole bl)
     {
+        benchLinkedBlockingQueue = new LinkedBlockingQueue<>();
 
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchLinkedBlockingQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
     public void addLinkedTransferQueue(Blackhole bl)
     {
+        benchLinkedTransferQueue = new LinkedTransferQueue<>();
 
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchLinkedTransferQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
     public void addPriorityBlockingQueue(Blackhole bl)
     {
+        benchPriorityBlockingQueue = new PriorityBlockingQueue<>();
 
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchPriorityBlockingQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     @Benchmark
     public void addSynchronousQueue(Blackhole bl)
     {
+        benchSynchronousQueue = new SynchronousQueue<>();
 
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchSynchronousQueue.add(Sender.getData());
+                bl.consume(Sender.getData());
+            }
+        ).start();
     }
 
     public static void main(String args[]) throws Exception

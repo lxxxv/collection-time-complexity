@@ -18,8 +18,6 @@ import java.util.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class MapGet
 {
-    Random rm;
-
     public Map<String, String> benchHashMap;
     public Map<String, String> benchTreeMap;
     public Map<String, String> benchLinkedHashMap;
@@ -29,8 +27,6 @@ public class MapGet
     @Setup
     public void setUp()
     {
-        rm = new Random();
-
         benchHashMap = new HashMap<>();
         benchTreeMap = new TreeMap<>();
         benchLinkedHashMap = new LinkedHashMap<>();
