@@ -137,21 +137,4 @@ public class QueueAdd
 
         benchPriorityBlockingQueue.clear();
     }
-
-    @Benchmark
-    public void addSynchronousQueue(Blackhole bl)
-    {
-        benchSynchronousQueue = new SynchronousQueue<>();
-
-        new CallBackAdd
-        (
-            (Sender)->
-            {
-                benchSynchronousQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
-            }
-        ).start();
-
-        benchSynchronousQueue.clear();
-    }
 }
