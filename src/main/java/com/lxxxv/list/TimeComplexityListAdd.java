@@ -1,5 +1,6 @@
-package com.lxxxv;
+package com.lxxxv.list;
 
+import com.lxxxv.ITimeComplexity;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
@@ -15,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class TimeComplexityListSort implements ITimeComplexity
+public class TimeComplexityListAdd implements ITimeComplexity
 {
     Random rm;
 
@@ -31,43 +32,54 @@ public class TimeComplexityListSort implements ITimeComplexity
         benchArrayList = new ArrayList<>();
         benchLinkedList = new LinkedList<>();
         benchVector = new Vector<>();
+    }
 
+    @Benchmark
+    public void addArrayList(Blackhole bl)
+    {
+        benchArrayList.clear();
+
+        String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-            benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-            benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
+            benchArrayList.add(result);
+            bl.consume(result);
         }
     }
 
     @Benchmark
-    public void sortArrayList(Blackhole bl)
+    public void addLinkedList(Blackhole bl)
     {
-        bl.consume(0);
-        Collections.sort(benchArrayList);
-        bl.consume(benchArrayList.size());
+        benchLinkedList.clear();
+
+        String result;
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
+            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
+            benchLinkedList.add(result);
+            bl.consume(result);
+        }
     }
 
     @Benchmark
-    public void sortLinkedList(Blackhole bl)
+    public void addVector(Blackhole bl)
     {
-        bl.consume(0);
-        Collections.sort(benchLinkedList);
-        bl.consume(benchLinkedList.size());
-    }
+        benchVector.clear();
 
-    @Benchmark
-    public void sortVector(Blackhole bl)
-    {
-        bl.consume(0);
-        Collections.sort(benchVector);
-        bl.consume(benchVector.size());
+        String result;
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
+            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
+            benchVector.add(result);
+            bl.consume(result);
+        }
     }
 
     public static void main(String args[]) throws Exception
     {
         Options opt = new OptionsBuilder()
-                .include(TimeComplexityListSort.class.getSimpleName())
+                .include(TimeComplexityListAdd.class.getSimpleName())
                 .forks(1)
                 .build();
 
