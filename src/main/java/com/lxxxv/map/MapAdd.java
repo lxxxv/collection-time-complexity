@@ -1,14 +1,13 @@
 package com.lxxxv.map;
 
 import com.lxxxv.ITimeComplexity;
-import com.lxxxv.list.ListAdd;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.*;
 
 // http://tutorials.jenkov.com/java-performance/jmh.html
@@ -31,18 +30,12 @@ public class MapAdd implements ITimeComplexity
     public void setUp()
     {
         rm = new Random();
-
-        benchHashMap = new HashMap<>();
-        benchTreeMap = new TreeMap<>();
-        benchLinkedHashMap = new LinkedHashMap<>();
-        benchIdentityHashMap = new IdentityHashMap<>();
-        benchWeakHashMap = new WeakHashMap<>();
     }
 
     @Benchmark
     public void addHashMap(Blackhole bl)
     {
-        benchHashMap.clear();
+        benchHashMap = new HashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -56,7 +49,7 @@ public class MapAdd implements ITimeComplexity
     @Benchmark
     public void addTreeMap(Blackhole bl)
     {
-        benchTreeMap.clear();
+        benchTreeMap = new TreeMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -70,7 +63,7 @@ public class MapAdd implements ITimeComplexity
     @Benchmark
     public void addLinkedHashMap(Blackhole bl)
     {
-        benchLinkedHashMap.clear();
+        benchLinkedHashMap = new LinkedHashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -84,7 +77,7 @@ public class MapAdd implements ITimeComplexity
     @Benchmark
     public void addIdentityHashMap(Blackhole bl)
     {
-        benchIdentityHashMap.clear();
+        benchIdentityHashMap = new IdentityHashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -98,7 +91,7 @@ public class MapAdd implements ITimeComplexity
     @Benchmark
     public void addWeakHashMap(Blackhole bl)
     {
-        benchWeakHashMap.clear();
+        benchWeakHashMap = new WeakHashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -113,7 +106,6 @@ public class MapAdd implements ITimeComplexity
     {
         Options opt = new OptionsBuilder()
                 .include(MapAdd.class.getSimpleName())
-                .forks(1)
                 .build();
 
         new Runner(opt).run();

@@ -7,7 +7,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.*;
 
 // http://tutorials.jenkov.com/java-performance/jmh.html
@@ -28,16 +28,12 @@ public class ListAdd implements ITimeComplexity
     public void setUp()
     {
         rm = new Random();
-
-        benchArrayList = new ArrayList<>();
-        benchLinkedList = new LinkedList<>();
-        benchVector = new Vector<>();
     }
 
     @Benchmark
     public void addArrayList(Blackhole bl)
     {
-        benchArrayList.clear();
+        benchArrayList = new ArrayList<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -51,7 +47,7 @@ public class ListAdd implements ITimeComplexity
     @Benchmark
     public void addLinkedList(Blackhole bl)
     {
-        benchLinkedList.clear();
+        benchLinkedList = new LinkedList<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -65,7 +61,7 @@ public class ListAdd implements ITimeComplexity
     @Benchmark
     public void addVector(Blackhole bl)
     {
-        benchVector.clear();
+        benchVector = new Vector<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
@@ -80,7 +76,6 @@ public class ListAdd implements ITimeComplexity
     {
         Options opt = new OptionsBuilder()
                 .include(ListAdd.class.getSimpleName())
-                .forks(1)
                 .build();
 
         new Runner(opt).run();

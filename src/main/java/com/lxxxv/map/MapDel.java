@@ -7,7 +7,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.*;
 
 // http://tutorials.jenkov.com/java-performance/jmh.html
@@ -30,109 +30,117 @@ public class MapDel implements ITimeComplexity
     public void setUp()
     {
         rm = new Random();
-
-        benchHashMap = new HashMap<>();
-        benchTreeMap = new TreeMap<>();
-        benchLinkedHashMap = new LinkedHashMap<>();
-        benchIdentityHashMap = new IdentityHashMap<>();
-        benchWeakHashMap = new WeakHashMap<>();
     }
 
     @Benchmark
     public void delHashMap(Blackhole bl)
     {
-        benchHashMap.clear();
+        benchHashMap = new HashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
             benchHashMap.put(result, result);
-            bl.consume(result);
         }
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchHashMap.keySet()) {keyList.add(key);}
-        for(String key: keyList) {benchHashMap.remove(key);}
+        for(String key: keyList)
+        {
+            benchHashMap.remove(key);
+            bl.consume(key);
+        }
     }
 
     @Benchmark
     public void delTreeMap(Blackhole bl)
     {
-        benchTreeMap.clear();
+        benchTreeMap = new TreeMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
             benchTreeMap.put(result, result);
-            bl.consume(result);
         }
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchTreeMap.keySet()) {keyList.add(key);}
-        for(String key: keyList) {benchTreeMap.remove(key);}
+        for(String key: keyList)
+        {
+            benchTreeMap.remove(key);
+            bl.consume(key);
+        }
     }
 
     @Benchmark
     public void delLinkedHashMap(Blackhole bl)
     {
-        benchLinkedHashMap.clear();
+        benchLinkedHashMap = new LinkedHashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
             benchLinkedHashMap.put(result, result);
-            bl.consume(result);
         }
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchLinkedHashMap.keySet()) {keyList.add(key);}
-        for(String key: keyList) {benchLinkedHashMap.remove(key);}
+        for(String key: keyList)
+        {
+            benchLinkedHashMap.remove(key);
+            bl.consume(key);
+        }
     }
 
     @Benchmark
     public void delIdentityHashMap(Blackhole bl)
     {
-        benchIdentityHashMap.clear();
+        benchIdentityHashMap = new IdentityHashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
             benchIdentityHashMap.put(result, result);
-            bl.consume(result);
         }
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchIdentityHashMap.keySet()) {keyList.add(key);}
-        for(String key: keyList) {benchIdentityHashMap.remove(key);}
+        for(String key: keyList)
+        {
+            benchIdentityHashMap.remove(key);
+            bl.consume(key);
+        }
     }
 
     @Benchmark
     public void delWeakHashMap(Blackhole bl)
     {
-        benchWeakHashMap.clear();
+        benchWeakHashMap = new WeakHashMap<>();
 
         String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
             benchWeakHashMap.put(result, result);
-            bl.consume(result);
         }
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchWeakHashMap.keySet()) {keyList.add(key);}
-        for(String key: keyList) {benchWeakHashMap.remove(key);}
+        for(String key: keyList)
+        {
+            benchWeakHashMap.remove(key);
+            bl.consume(key);
+        }
     }
 
     public static void main(String args[]) throws Exception
     {
         Options opt = new OptionsBuilder()
                 .include(MapDel.class.getSimpleName())
-                .forks(1)
                 .build();
 
         new Runner(opt).run();

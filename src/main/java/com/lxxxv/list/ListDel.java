@@ -7,7 +7,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.*;
 
 // http://tutorials.jenkov.com/java-performance/jmh.html
@@ -28,15 +28,13 @@ public class ListDel implements ITimeComplexity
     public void setUp()
     {
         rm = new Random();
-
-        benchArrayList = new ArrayList<>();
-        benchLinkedList = new LinkedList<>();
-        benchVector = new Vector<>();
     }
 
     @Benchmark
     public void delArrayList(Blackhole bl)
     {
+        benchArrayList = new ArrayList<>();
+
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
@@ -52,6 +50,8 @@ public class ListDel implements ITimeComplexity
     @Benchmark
     public void delLinkedList(Blackhole bl)
     {
+        benchLinkedList = new LinkedList<>();
+
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
@@ -67,6 +67,8 @@ public class ListDel implements ITimeComplexity
     @Benchmark
     public void delVector(Blackhole bl)
     {
+        benchVector = new Vector<>();
+
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
@@ -83,7 +85,6 @@ public class ListDel implements ITimeComplexity
     {
         Options opt = new OptionsBuilder()
                 .include(ListDel.class.getSimpleName())
-                .forks(1)
                 .build();
 
         new Runner(opt).run();
