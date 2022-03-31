@@ -43,9 +43,14 @@ public class QueueGet
             (Sender)->
             {
                 benchPriorityQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
+
+        while(benchPriorityQueue.size() > 0)
+        {
+            benchPriorityQueue.poll();
+            bl.consume(benchPriorityQueue.size());
+        }
     }
 
     @Benchmark
@@ -73,9 +78,14 @@ public class QueueGet
             (Sender)->
             {
                 benchConcurrentLinkedQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
+
+        while(benchConcurrentLinkedQueue.size() > 0)
+        {
+            benchConcurrentLinkedQueue.poll();
+            bl.consume(benchConcurrentLinkedQueue.size());
+        }
     }
 
     @Benchmark
@@ -88,7 +98,6 @@ public class QueueGet
 //            (Sender)->
 //            {
 //                benchDelayQueue.add(Sender.getData());
-//                bl.consume(Sender.getData());
 //            }
 //        ).start();
     }
@@ -103,9 +112,14 @@ public class QueueGet
             (Sender)->
             {
                 benchLinkedBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
+
+        while(benchLinkedBlockingQueue.size() > 0)
+        {
+            benchLinkedBlockingQueue.poll();
+            bl.consume(benchLinkedBlockingQueue.size());
+        }
     }
 
     @Benchmark
@@ -118,9 +132,14 @@ public class QueueGet
             (Sender)->
             {
                 benchLinkedTransferQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
+
+        while(benchLinkedTransferQueue.size() > 0)
+        {
+            benchLinkedTransferQueue.poll();
+            bl.consume(benchLinkedTransferQueue.size());
+        }
     }
 
     @Benchmark
@@ -133,9 +152,14 @@ public class QueueGet
             (Sender)->
             {
                 benchPriorityBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
+
+        while(benchPriorityBlockingQueue.size() > 0)
+        {
+            benchPriorityBlockingQueue.poll();
+            bl.consume(benchPriorityBlockingQueue.size());
+        }
     }
 
     @Benchmark
@@ -148,9 +172,14 @@ public class QueueGet
             (Sender)->
             {
                 benchSynchronousQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
+
+        while(benchSynchronousQueue.size() > 0)
+        {
+            benchSynchronousQueue.poll();
+            bl.consume(benchSynchronousQueue.size());
+        }
     }
 
     public static void main(String args[]) throws Exception
