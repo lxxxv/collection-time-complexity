@@ -1,15 +1,15 @@
 # collection-time-complexity
 
-Benchmark                          Mode  Cnt       Score       Error  Units<br/>
-TimeComplexityList.addArrayList    avgt   25   77827.367 ±  8407.313  ns/op<br/>
-TimeComplexityList.addLinkedList   avgt   25   72079.089 ±  7194.947  ns/op<br/>
-TimeComplexityList.addVector       avgt   25   72272.523 ±  4475.042  ns/op<br/>
-TimeComplexityList.delArrayList    avgt   25       0.781 ±     0.103  ns/op<br/>
-TimeComplexityList.delLinkedList   avgt   25       0.644 ±     0.014  ns/op<br/>
-TimeComplexityList.delVector       avgt   25      17.308 ±     0.250  ns/op<br/>
-TimeComplexityList.getArrayList    avgt   25    2870.917 ±   157.423  ns/op<br/>
-TimeComplexityList.getLinkedList   avgt   25  399811.655 ± 53192.345  ns/op<br/>
-TimeComplexityList.getVector       avgt   25   24397.107 ±   908.652  ns/op<br/>
-TimeComplexityList.sortArrayList   avgt   25    6051.581 ±   337.173  ns/op<br/>
-TimeComplexityList.sortLinkedList  avgt   25   13864.878 ±  1780.618  ns/op<br/>
-TimeComplexityList.sortVector      avgt   25    4855.757 ±   487.031  ns/op<br/>
+Benchmark                              Mode  Cnt       Score      Error  Units <br/>
+TimeComplexityListAdd.addArrayList     avgt   25   74154.981 ±  263.442  ns/op <br/>
+TimeComplexityListAdd.addLinkedList    avgt   25   77418.918 ±  442.360  ns/op <br/>
+TimeComplexityListAdd.addVector        avgt   25   76034.195 ±  263.722  ns/op <br/>
+TimeComplexityListDel.delArrayList     avgt   25   98604.244 ±  961.734  ns/op <br/>
+TimeComplexityListDel.delLinkedList    avgt   25   76055.479 ±  835.447  ns/op <br/>
+TimeComplexityListDel.delVector        avgt   25  139189.893 ± 4012.035  ns/op <br/>
+TimeComplexityListGet.getArrayList     avgt   25    2577.614 ±    8.821  ns/op <br/>
+TimeComplexityListGet.getLinkedList    avgt   25  246594.652 ± 1066.416  ns/op <br/>
+TimeComplexityListGet.getVector        avgt   25   31770.173 ±   88.133  ns/op <br/>
+TimeComplexityListSort.sortArrayList   avgt   25    3497.209 ±  103.465  ns/op <br/>
+TimeComplexityListSort.sortLinkedList  avgt   25    7659.450 ±  599.120  ns/op <br/>
+TimeComplexityListSort.sortVector      avgt   25    3503.715 ±  103.342  ns/op <br/>

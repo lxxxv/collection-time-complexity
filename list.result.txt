@@ -1,0 +1,1059 @@
+PS  > java -jar .\target\benchmarks.jar TimeComplexityListAdd ; java -jar .\target\benchmarks.jar TimeComplexityListDel ; java -jar .\target\benchmarks.jar TimeComplexityListGet ; java -jar .\target\benchmarks.jar TimeComplexityListSort
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListAdd.addArrayList
+
+# Run progress: 0.00% complete, ETA 00:25:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 76993.244 ns/op
+# Warmup Iteration   2: 74024.475 ns/op
+# Warmup Iteration   3: 73694.709 ns/op
+# Warmup Iteration   4: 73931.373 ns/op
+# Warmup Iteration   5: 73961.473 ns/op
+Iteration   1: 73815.585 ns/op
+Iteration   2: 73635.241 ns/op
+Iteration   3: 73953.151 ns/op
+Iteration   4: 73688.246 ns/op
+Iteration   5: 73691.728 ns/op
+
+# Run progress: 6.67% complete, ETA 00:23:25
+# Fork: 2 of 5
+# Warmup Iteration   1: 76933.131 ns/op
+# Warmup Iteration   2: 73961.756 ns/op
+# Warmup Iteration   3: 73870.264 ns/op
+# Warmup Iteration   4: 73799.631 ns/op
+# Warmup Iteration   5: 73763.737 ns/op
+Iteration   1: 73768.555 ns/op
+Iteration   2: 73645.734 ns/op
+Iteration   3: 73578.392 ns/op
+Iteration   4: 74532.905 ns/op
+Iteration   5: 74218.898 ns/op
+
+# Run progress: 13.33% complete, ETA 00:21:45
+# Fork: 3 of 5
+# Warmup Iteration   1: 77713.260 ns/op
+# Warmup Iteration   2: 74252.437 ns/op
+# Warmup Iteration   3: 74277.755 ns/op
+# Warmup Iteration   4: 74208.976 ns/op
+# Warmup Iteration   5: 74192.802 ns/op
+Iteration   1: 74247.518 ns/op
+Iteration   2: 74455.677 ns/op
+Iteration   3: 74317.147 ns/op
+Iteration   4: 74218.797 ns/op
+Iteration   5: 74172.157 ns/op
+
+# Run progress: 20.00% complete, ETA 00:20:04
+# Fork: 4 of 5
+# Warmup Iteration   1: 77301.935 ns/op
+# Warmup Iteration   2: 74507.165 ns/op
+# Warmup Iteration   3: 74050.062 ns/op
+# Warmup Iteration   4: 74357.667 ns/op
+# Warmup Iteration   5: 74340.236 ns/op
+Iteration   1: 74284.861 ns/op
+Iteration   2: 74266.164 ns/op
+Iteration   3: 74430.877 ns/op
+Iteration   4: 74189.016 ns/op
+Iteration   5: 74030.478 ns/op
+
+# Run progress: 26.67% complete, ETA 00:18:24
+# Fork: 5 of 5
+# Warmup Iteration   1: 77490.744 ns/op
+# Warmup Iteration   2: 74251.507 ns/op
+# Warmup Iteration   3: 74261.567 ns/op
+# Warmup Iteration   4: 74254.773 ns/op
+# Warmup Iteration   5: 74494.174 ns/op
+Iteration   1: 74370.498 ns/op
+Iteration   2: 74919.393 ns/op
+Iteration   3: 74466.605 ns/op
+Iteration   4: 74388.549 ns/op
+Iteration   5: 74588.345 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListAdd.addArrayList":
+  74154.981 ±(99.9%) 263.442 ns/op [Average]
+  (min, avg, max) = (73578.392, 74154.981, 74919.393), stdev = 351.688
+  CI (99.9%): [73891.539, 74418.423] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListAdd.addLinkedList
+
+# Run progress: 33.33% complete, ETA 00:16:43
+# Fork: 1 of 5
+# Warmup Iteration   1: 80545.606 ns/op
+# Warmup Iteration   2: 77436.841 ns/op
+# Warmup Iteration   3: 78716.325 ns/op
+# Warmup Iteration   4: 78245.120 ns/op
+# Warmup Iteration   5: 78277.725 ns/op
+Iteration   1: 78383.789 ns/op
+Iteration   2: 78183.447 ns/op
+Iteration   3: 78251.891 ns/op
+Iteration   4: 78231.726 ns/op
+Iteration   5: 78379.260 ns/op
+
+# Run progress: 40.00% complete, ETA 00:15:03
+# Fork: 2 of 5
+# Warmup Iteration   1: 79106.185 ns/op
+# Warmup Iteration   2: 75976.994 ns/op
+# Warmup Iteration   3: 77167.914 ns/op
+# Warmup Iteration   4: 76885.447 ns/op
+# Warmup Iteration   5: 76887.766 ns/op
+Iteration   1: 76644.760 ns/op
+Iteration   2: 76947.333 ns/op
+Iteration   3: 76979.213 ns/op
+Iteration   4: 76684.231 ns/op
+Iteration   5: 76896.484 ns/op
+
+# Run progress: 46.67% complete, ETA 00:13:23
+# Fork: 3 of 5
+# Warmup Iteration   1: 79292.089 ns/op
+# Warmup Iteration   2: 75590.133 ns/op
+# Warmup Iteration   3: 78115.813 ns/op
+# Warmup Iteration   4: 77860.418 ns/op
+# Warmup Iteration   5: 77696.576 ns/op
+Iteration   1: 77956.601 ns/op
+Iteration   2: 77839.454 ns/op
+Iteration   3: 77825.081 ns/op
+Iteration   4: 77755.238 ns/op
+Iteration   5: 78029.174 ns/op
+
+# Run progress: 53.33% complete, ETA 00:11:42
+# Fork: 4 of 5
+# Warmup Iteration   1: 79695.449 ns/op
+# Warmup Iteration   2: 78045.315 ns/op
+# Warmup Iteration   3: 76923.955 ns/op
+# Warmup Iteration   4: 76920.547 ns/op
+# Warmup Iteration   5: 76864.260 ns/op
+Iteration   1: 76897.787 ns/op
+Iteration   2: 76986.429 ns/op
+Iteration   3: 76939.474 ns/op
+Iteration   4: 77043.994 ns/op
+Iteration   5: 76705.509 ns/op
+
+# Run progress: 60.00% complete, ETA 00:10:02
+# Fork: 5 of 5
+# Warmup Iteration   1: 79637.034 ns/op
+# Warmup Iteration   2: 76105.621 ns/op
+# Warmup Iteration   3: 77380.899 ns/op
+# Warmup Iteration   4: 77214.777 ns/op
+# Warmup Iteration   5: 77168.877 ns/op
+Iteration   1: 77184.492 ns/op
+Iteration   2: 77105.665 ns/op
+Iteration   3: 77183.948 ns/op
+Iteration   4: 77277.966 ns/op
+Iteration   5: 77159.994 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListAdd.addLinkedList":
+  77418.918 ±(99.9%) 442.360 ns/op [Average]
+  (min, avg, max) = (76644.760, 77418.918, 78383.789), stdev = 590.538
+  CI (99.9%): [76976.557, 77861.278] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListAdd.addVector
+
+# Run progress: 66.67% complete, ETA 00:08:21
+# Fork: 1 of 5
+# Warmup Iteration   1: 79147.744 ns/op
+# Warmup Iteration   2: 75755.201 ns/op
+# Warmup Iteration   3: 75984.253 ns/op
+# Warmup Iteration   4: 75915.248 ns/op
+# Warmup Iteration   5: 75778.818 ns/op
+Iteration   1: 75955.021 ns/op
+Iteration   2: 76661.644 ns/op
+Iteration   3: 76092.867 ns/op
+Iteration   4: 75799.504 ns/op
+Iteration   5: 75859.415 ns/op
+
+# Run progress: 73.33% complete, ETA 00:06:41
+# Fork: 2 of 5
+# Warmup Iteration   1: 79272.070 ns/op
+# Warmup Iteration   2: 75863.222 ns/op
+# Warmup Iteration   3: 76348.536 ns/op
+# Warmup Iteration   4: 75968.757 ns/op
+# Warmup Iteration   5: 76292.978 ns/op
+Iteration   1: 75995.993 ns/op
+Iteration   2: 77199.464 ns/op
+Iteration   3: 75962.809 ns/op
+Iteration   4: 75945.019 ns/op
+Iteration   5: 76321.669 ns/op
+
+# Run progress: 80.00% complete, ETA 00:05:01
+# Fork: 3 of 5
+# Warmup Iteration   1: 80698.968 ns/op
+# Warmup Iteration   2: 77173.466 ns/op
+# Warmup Iteration   3: 76313.475 ns/op
+# Warmup Iteration   4: 76441.309 ns/op
+# Warmup Iteration   5: 76545.536 ns/op
+Iteration   1: 76341.255 ns/op
+Iteration   2: 76100.533 ns/op
+Iteration   3: 76151.129 ns/op
+Iteration   4: 76452.899 ns/op
+Iteration   5: 76205.883 ns/op
+
+# Run progress: 86.67% complete, ETA 00:03:20
+# Fork: 4 of 5
+# Warmup Iteration   1: 79288.563 ns/op
+# Warmup Iteration   2: 75824.196 ns/op
+# Warmup Iteration   3: 75994.842 ns/op
+# Warmup Iteration   4: 75740.330 ns/op
+# Warmup Iteration   5: 75804.057 ns/op
+Iteration   1: 75770.957 ns/op
+Iteration   2: 75665.617 ns/op
+Iteration   3: 75716.365 ns/op
+Iteration   4: 75677.618 ns/op
+Iteration   5: 75735.620 ns/op
+
+# Run progress: 93.33% complete, ETA 00:01:40
+# Fork: 5 of 5
+# Warmup Iteration   1: 78980.975 ns/op
+# Warmup Iteration   2: 75615.129 ns/op
+# Warmup Iteration   3: 75763.712 ns/op
+# Warmup Iteration   4: 75945.335 ns/op
+# Warmup Iteration   5: 75906.462 ns/op
+Iteration   1: 75946.922 ns/op
+Iteration   2: 75775.334 ns/op
+Iteration   3: 75791.155 ns/op
+Iteration   4: 75854.911 ns/op
+Iteration   5: 75875.267 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListAdd.addVector":
+  76034.195 ±(99.9%) 263.722 ns/op [Average]
+  (min, avg, max) = (75665.617, 76034.195, 77199.464), stdev = 352.061
+  CI (99.9%): [75770.473, 76297.917] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:25:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                            Mode  Cnt      Score     Error  Units
+TimeComplexityListAdd.addArrayList   avgt   25  74154.981 ± 263.442  ns/op
+TimeComplexityListAdd.addLinkedList  avgt   25  77418.918 ± 442.360  ns/op
+TimeComplexityListAdd.addVector      avgt   25  76034.195 ± 263.722  ns/op
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListDel.delArrayList
+
+# Run progress: 0.00% complete, ETA 00:25:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 101346.779 ns/op
+# Warmup Iteration   2: 97556.796 ns/op
+# Warmup Iteration   3: 96714.102 ns/op
+# Warmup Iteration   4: 96877.796 ns/op
+# Warmup Iteration   5: 96790.724 ns/op
+Iteration   1: 96728.945 ns/op
+Iteration   2: 96928.343 ns/op
+Iteration   3: 97005.694 ns/op
+Iteration   4: 96806.405 ns/op
+Iteration   5: 96736.235 ns/op
+
+# Run progress: 6.67% complete, ETA 00:23:24
+# Fork: 2 of 5
+# Warmup Iteration   1: 101950.969 ns/op
+# Warmup Iteration   2: 99642.057 ns/op
+# Warmup Iteration   3: 99217.517 ns/op
+# Warmup Iteration   4: 99455.145 ns/op
+# Warmup Iteration   5: 99191.670 ns/op
+Iteration   1: 99207.038 ns/op
+Iteration   2: 100024.365 ns/op
+Iteration   3: 99396.362 ns/op
+Iteration   4: 99327.519 ns/op
+Iteration   5: 99673.764 ns/op
+
+# Run progress: 13.33% complete, ETA 00:21:44
+# Fork: 3 of 5
+# Warmup Iteration   1: 102632.831 ns/op
+# Warmup Iteration   2: 100479.157 ns/op
+# Warmup Iteration   3: 99827.278 ns/op
+# Warmup Iteration   4: 99809.700 ns/op
+# Warmup Iteration   5: 99873.060 ns/op
+Iteration   1: 99995.975 ns/op
+Iteration   2: 99855.156 ns/op
+Iteration   3: 100160.984 ns/op
+Iteration   4: 99901.026 ns/op
+Iteration   5: 100206.518 ns/op
+
+# Run progress: 20.00% complete, ETA 00:20:03
+# Fork: 4 of 5
+# Warmup Iteration   1: 102377.747 ns/op
+# Warmup Iteration   2: 100005.626 ns/op
+# Warmup Iteration   3: 99366.122 ns/op
+# Warmup Iteration   4: 99384.081 ns/op
+# Warmup Iteration   5: 99625.964 ns/op
+Iteration   1: 99365.062 ns/op
+Iteration   2: 99191.256 ns/op
+Iteration   3: 99358.776 ns/op
+Iteration   4: 99115.239 ns/op
+Iteration   5: 99055.656 ns/op
+
+# Run progress: 26.67% complete, ETA 00:18:23
+# Fork: 5 of 5
+# Warmup Iteration   1: 100183.855 ns/op
+# Warmup Iteration   2: 98093.090 ns/op
+# Warmup Iteration   3: 97660.813 ns/op
+# Warmup Iteration   4: 97122.161 ns/op
+# Warmup Iteration   5: 97436.013 ns/op
+Iteration   1: 97322.838 ns/op
+Iteration   2: 97355.731 ns/op
+Iteration   3: 97613.926 ns/op
+Iteration   4: 97439.142 ns/op
+Iteration   5: 97334.136 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListDel.delArrayList":
+  98604.244 ±(99.9%) 961.734 ns/op [Average]
+  (min, avg, max) = (96728.945, 98604.244, 100206.518), stdev = 1283.888
+  CI (99.9%): [97642.509, 99565.978] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListDel.delLinkedList
+
+# Run progress: 33.33% complete, ETA 00:16:43
+# Fork: 1 of 5
+# Warmup Iteration   1: 80435.568 ns/op
+# Warmup Iteration   2: 76542.641 ns/op
+# Warmup Iteration   3: 75217.419 ns/op
+# Warmup Iteration   4: 75466.995 ns/op
+# Warmup Iteration   5: 75405.069 ns/op
+Iteration   1: 75423.780 ns/op
+Iteration   2: 75692.027 ns/op
+Iteration   3: 75440.871 ns/op
+Iteration   4: 75373.999 ns/op
+Iteration   5: 75478.418 ns/op
+
+# Run progress: 40.00% complete, ETA 00:15:03
+# Fork: 2 of 5
+# Warmup Iteration   1: 80626.592 ns/op
+# Warmup Iteration   2: 76603.602 ns/op
+# Warmup Iteration   3: 76285.250 ns/op
+# Warmup Iteration   4: 77724.535 ns/op
+# Warmup Iteration   5: 78817.459 ns/op
+Iteration   1: 79836.144 ns/op
+Iteration   2: 78718.225 ns/op
+Iteration   3: 77270.002 ns/op
+Iteration   4: 75971.907 ns/op
+Iteration   5: 76172.690 ns/op
+
+# Run progress: 46.67% complete, ETA 00:13:22
+# Fork: 3 of 5
+# Warmup Iteration   1: 80414.321 ns/op
+# Warmup Iteration   2: 76725.536 ns/op
+# Warmup Iteration   3: 75322.967 ns/op
+# Warmup Iteration   4: 75251.242 ns/op
+# Warmup Iteration   5: 75029.033 ns/op
+Iteration   1: 75225.636 ns/op
+Iteration   2: 75143.737 ns/op
+Iteration   3: 75020.426 ns/op
+Iteration   4: 75084.377 ns/op
+Iteration   5: 75261.315 ns/op
+
+# Run progress: 53.33% complete, ETA 00:11:42
+# Fork: 4 of 5
+# Warmup Iteration   1: 80277.222 ns/op
+# Warmup Iteration   2: 76356.178 ns/op
+# Warmup Iteration   3: 76120.972 ns/op
+# Warmup Iteration   4: 76071.988 ns/op
+# Warmup Iteration   5: 76222.800 ns/op
+Iteration   1: 76415.076 ns/op
+Iteration   2: 76436.545 ns/op
+Iteration   3: 76223.667 ns/op
+Iteration   4: 76322.722 ns/op
+Iteration   5: 76257.152 ns/op
+
+# Run progress: 60.00% complete, ETA 00:10:02
+# Fork: 5 of 5
+# Warmup Iteration   1: 80382.402 ns/op
+# Warmup Iteration   2: 77403.712 ns/op
+# Warmup Iteration   3: 75687.045 ns/op
+# Warmup Iteration   4: 75557.190 ns/op
+# Warmup Iteration   5: 75722.889 ns/op
+Iteration   1: 75840.315 ns/op
+Iteration   2: 75731.387 ns/op
+Iteration   3: 75517.229 ns/op
+Iteration   4: 75961.574 ns/op
+Iteration   5: 75567.752 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListDel.delLinkedList":
+  76055.479 ±(99.9%) 835.447 ns/op [Average]
+  (min, avg, max) = (75020.426, 76055.479, 79836.144), stdev = 1115.298
+  CI (99.9%): [75220.032, 76890.926] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListDel.delVector
+
+# Run progress: 66.67% complete, ETA 00:08:21
+# Fork: 1 of 5
+# Warmup Iteration   1: 137564.211 ns/op
+# Warmup Iteration   2: 134408.895 ns/op
+# Warmup Iteration   3: 135092.929 ns/op
+# Warmup Iteration   4: 134499.389 ns/op
+# Warmup Iteration   5: 134957.709 ns/op
+Iteration   1: 134834.369 ns/op
+Iteration   2: 134819.253 ns/op
+Iteration   3: 134786.553 ns/op
+Iteration   4: 135284.922 ns/op
+Iteration   5: 134800.183 ns/op
+
+# Run progress: 73.33% complete, ETA 00:06:41
+# Fork: 2 of 5
+# Warmup Iteration   1: 138641.744 ns/op
+# Warmup Iteration   2: 134471.288 ns/op
+# Warmup Iteration   3: 135436.650 ns/op
+# Warmup Iteration   4: 135210.296 ns/op
+# Warmup Iteration   5: 135412.532 ns/op
+Iteration   1: 135630.067 ns/op
+Iteration   2: 135262.953 ns/op
+Iteration   3: 135283.399 ns/op
+Iteration   4: 135226.244 ns/op
+Iteration   5: 135199.110 ns/op
+
+# Run progress: 80.00% complete, ETA 00:05:01
+# Fork: 3 of 5
+# Warmup Iteration   1: 145374.987 ns/op
+# Warmup Iteration   2: 145318.973 ns/op
+# Warmup Iteration   3: 146895.416 ns/op
+# Warmup Iteration   4: 146609.985 ns/op
+# Warmup Iteration   5: 147211.383 ns/op
+Iteration   1: 147112.068 ns/op
+Iteration   2: 146539.658 ns/op
+Iteration   3: 146646.903 ns/op
+Iteration   4: 146292.483 ns/op
+Iteration   5: 146624.144 ns/op
+
+# Run progress: 86.67% complete, ETA 00:03:20
+# Fork: 4 of 5
+# Warmup Iteration   1: 138030.388 ns/op
+# Warmup Iteration   2: 134595.613 ns/op
+# Warmup Iteration   3: 134847.871 ns/op
+# Warmup Iteration   4: 135136.454 ns/op
+# Warmup Iteration   5: 134484.262 ns/op
+Iteration   1: 134654.867 ns/op
+Iteration   2: 134994.241 ns/op
+Iteration   3: 134514.669 ns/op
+Iteration   4: 134558.543 ns/op
+Iteration   5: 134389.471 ns/op
+
+# Run progress: 93.33% complete, ETA 00:01:40
+# Fork: 5 of 5
+# Warmup Iteration   1: 145520.084 ns/op
+# Warmup Iteration   2: 144345.620 ns/op
+# Warmup Iteration   3: 144315.980 ns/op
+# Warmup Iteration   4: 144250.319 ns/op
+# Warmup Iteration   5: 144325.247 ns/op
+Iteration   1: 144493.832 ns/op
+Iteration   2: 144629.280 ns/op
+Iteration   3: 144252.170 ns/op
+Iteration   4: 144421.029 ns/op
+Iteration   5: 144496.918 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListDel.delVector":
+  139189.893 ±(99.9%) 4012.035 ns/op [Average]
+  (min, avg, max) = (134389.471, 139189.893, 147112.068), stdev = 5355.951
+  CI (99.9%): [135177.858, 143201.928] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:25:05
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                            Mode  Cnt       Score      Error  Units
+TimeComplexityListDel.delArrayList   avgt   25   98604.244 ±  961.734  ns/op
+TimeComplexityListDel.delLinkedList  avgt   25   76055.479 ±  835.447  ns/op
+TimeComplexityListDel.delVector      avgt   25  139189.893 ± 4012.035  ns/op
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListGet.getArrayList
+
+# Run progress: 0.00% complete, ETA 00:25:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 2591.194 ns/op
+# Warmup Iteration   2: 2626.572 ns/op
+# Warmup Iteration   3: 2575.738 ns/op
+# Warmup Iteration   4: 2555.463 ns/op
+# Warmup Iteration   5: 2572.589 ns/op
+Iteration   1: 2569.011 ns/op
+Iteration   2: 2569.302 ns/op
+Iteration   3: 2576.254 ns/op
+Iteration   4: 2561.179 ns/op
+Iteration   5: 2555.575 ns/op
+
+# Run progress: 6.67% complete, ETA 00:23:24
+# Fork: 2 of 5
+# Warmup Iteration   1: 2577.592 ns/op
+# Warmup Iteration   2: 2628.769 ns/op
+# Warmup Iteration   3: 2560.079 ns/op
+# Warmup Iteration   4: 2564.187 ns/op
+# Warmup Iteration   5: 2558.058 ns/op
+Iteration   1: 2578.442 ns/op
+Iteration   2: 2579.649 ns/op
+Iteration   3: 2561.743 ns/op
+Iteration   4: 2571.505 ns/op
+Iteration   5: 2574.993 ns/op
+
+# Run progress: 13.33% complete, ETA 00:21:43
+# Fork: 3 of 5
+# Warmup Iteration   1: 2593.869 ns/op
+# Warmup Iteration   2: 2598.418 ns/op
+# Warmup Iteration   3: 2580.297 ns/op
+# Warmup Iteration   4: 2587.658 ns/op
+# Warmup Iteration   5: 2571.376 ns/op
+Iteration   1: 2570.933 ns/op
+Iteration   2: 2571.694 ns/op
+Iteration   3: 2578.062 ns/op
+Iteration   4: 2571.476 ns/op
+Iteration   5: 2594.800 ns/op
+
+# Run progress: 20.00% complete, ETA 00:20:03
+# Fork: 4 of 5
+# Warmup Iteration   1: 2606.077 ns/op
+# Warmup Iteration   2: 2608.736 ns/op
+# Warmup Iteration   3: 2595.467 ns/op
+# Warmup Iteration   4: 2584.666 ns/op
+# Warmup Iteration   5: 2578.550 ns/op
+Iteration   1: 2584.219 ns/op
+Iteration   2: 2598.048 ns/op
+Iteration   3: 2576.617 ns/op
+Iteration   4: 2570.987 ns/op
+Iteration   5: 2572.106 ns/op
+
+# Run progress: 26.67% complete, ETA 00:18:23
+# Fork: 5 of 5
+# Warmup Iteration   1: 2602.161 ns/op
+# Warmup Iteration   2: 2578.004 ns/op
+# Warmup Iteration   3: 2563.249 ns/op
+# Warmup Iteration   4: 2584.909 ns/op
+# Warmup Iteration   5: 2562.760 ns/op
+Iteration   1: 2586.299 ns/op
+Iteration   2: 2589.558 ns/op
+Iteration   3: 2606.110 ns/op
+Iteration   4: 2588.121 ns/op
+Iteration   5: 2583.680 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListGet.getArrayList":
+  2577.614 ±(99.9%) 8.821 ns/op [Average]
+  (min, avg, max) = (2555.575, 2577.614, 2606.110), stdev = 11.776
+  CI (99.9%): [2568.793, 2586.436] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListGet.getLinkedList
+
+# Run progress: 33.33% complete, ETA 00:16:42
+# Fork: 1 of 5
+# Warmup Iteration   1: 244808.443 ns/op
+# Warmup Iteration   2: 242671.996 ns/op
+# Warmup Iteration   3: 246273.377 ns/op
+# Warmup Iteration   4: 246322.484 ns/op
+# Warmup Iteration   5: 246072.408 ns/op
+Iteration   1: 245070.826 ns/op
+Iteration   2: 246086.378 ns/op
+Iteration   3: 246506.197 ns/op
+Iteration   4: 246778.984 ns/op
+Iteration   5: 246406.674 ns/op
+
+# Run progress: 40.00% complete, ETA 00:15:02
+# Fork: 2 of 5
+# Warmup Iteration   1: 243673.241 ns/op
+# Warmup Iteration   2: 244524.753 ns/op
+# Warmup Iteration   3: 243739.707 ns/op
+# Warmup Iteration   4: 245255.571 ns/op
+# Warmup Iteration   5: 245158.020 ns/op
+Iteration   1: 245615.707 ns/op
+Iteration   2: 243714.188 ns/op
+Iteration   3: 245293.573 ns/op
+Iteration   4: 245262.301 ns/op
+Iteration   5: 244944.227 ns/op
+
+# Run progress: 46.67% complete, ETA 00:13:22
+# Fork: 3 of 5
+# Warmup Iteration   1: 245434.428 ns/op
+# Warmup Iteration   2: 245584.589 ns/op
+# Warmup Iteration   3: 245835.694 ns/op
+# Warmup Iteration   4: 245683.130 ns/op
+# Warmup Iteration   5: 247026.292 ns/op
+Iteration   1: 246573.011 ns/op
+Iteration   2: 247562.058 ns/op
+Iteration   3: 247603.795 ns/op
+Iteration   4: 245389.459 ns/op
+Iteration   5: 247360.102 ns/op
+
+# Run progress: 53.33% complete, ETA 00:11:41
+# Fork: 4 of 5
+# Warmup Iteration   1: 246685.954 ns/op
+# Warmup Iteration   2: 247679.664 ns/op
+# Warmup Iteration   3: 246339.617 ns/op
+# Warmup Iteration   4: 246932.427 ns/op
+# Warmup Iteration   5: 247257.849 ns/op
+Iteration   1: 247167.057 ns/op
+Iteration   2: 247146.703 ns/op
+Iteration   3: 246434.963 ns/op
+Iteration   4: 246009.845 ns/op
+Iteration   5: 245479.305 ns/op
+
+# Run progress: 60.00% complete, ETA 00:10:01
+# Fork: 5 of 5
+# Warmup Iteration   1: 249568.565 ns/op
+# Warmup Iteration   2: 250452.881 ns/op
+# Warmup Iteration   3: 250588.211 ns/op
+# Warmup Iteration   4: 249455.982 ns/op
+# Warmup Iteration   5: 248902.757 ns/op
+Iteration   1: 246722.772 ns/op
+Iteration   2: 247699.587 ns/op
+Iteration   3: 249618.346 ns/op
+Iteration   4: 248864.796 ns/op
+Iteration   5: 249555.443 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListGet.getLinkedList":
+  246594.652 ±(99.9%) 1066.416 ns/op [Average]
+  (min, avg, max) = (243714.188, 246594.652, 249618.346), stdev = 1423.635
+  CI (99.9%): [245528.236, 247661.068] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListGet.getVector
+
+# Run progress: 66.67% complete, ETA 00:08:21
+# Fork: 1 of 5
+# Warmup Iteration   1: 32024.557 ns/op
+# Warmup Iteration   2: 32065.778 ns/op
+# Warmup Iteration   3: 31884.206 ns/op
+# Warmup Iteration   4: 31619.493 ns/op
+# Warmup Iteration   5: 31624.874 ns/op
+Iteration   1: 31697.800 ns/op
+Iteration   2: 31875.243 ns/op
+Iteration   3: 31882.740 ns/op
+Iteration   4: 31761.027 ns/op
+Iteration   5: 31535.587 ns/op
+
+# Run progress: 73.33% complete, ETA 00:06:41
+# Fork: 2 of 5
+# Warmup Iteration   1: 32003.555 ns/op
+# Warmup Iteration   2: 32025.538 ns/op
+# Warmup Iteration   3: 31763.873 ns/op
+# Warmup Iteration   4: 31707.579 ns/op
+# Warmup Iteration   5: 31741.659 ns/op
+Iteration   1: 31799.274 ns/op
+Iteration   2: 31523.273 ns/op
+Iteration   3: 31868.854 ns/op
+Iteration   4: 31843.385 ns/op
+Iteration   5: 31800.474 ns/op
+
+# Run progress: 80.00% complete, ETA 00:05:00
+# Fork: 3 of 5
+# Warmup Iteration   1: 31978.469 ns/op
+# Warmup Iteration   2: 32054.432 ns/op
+# Warmup Iteration   3: 31862.320 ns/op
+# Warmup Iteration   4: 31764.056 ns/op
+# Warmup Iteration   5: 31817.209 ns/op
+Iteration   1: 31847.472 ns/op
+Iteration   2: 31697.193 ns/op
+Iteration   3: 31936.142 ns/op
+Iteration   4: 31866.609 ns/op
+Iteration   5: 31777.508 ns/op
+
+# Run progress: 86.67% complete, ETA 00:03:20
+# Fork: 4 of 5
+# Warmup Iteration   1: 31781.752 ns/op
+# Warmup Iteration   2: 32055.399 ns/op
+# Warmup Iteration   3: 31868.283 ns/op
+# Warmup Iteration   4: 31782.793 ns/op
+# Warmup Iteration   5: 31773.548 ns/op
+Iteration   1: 31902.996 ns/op
+Iteration   2: 31655.887 ns/op
+Iteration   3: 31634.481 ns/op
+Iteration   4: 31775.752 ns/op
+Iteration   5: 31820.986 ns/op
+
+# Run progress: 93.33% complete, ETA 00:01:40
+# Fork: 5 of 5
+# Warmup Iteration   1: 32031.404 ns/op
+# Warmup Iteration   2: 31928.754 ns/op
+# Warmup Iteration   3: 31854.120 ns/op
+# Warmup Iteration   4: 31698.428 ns/op
+# Warmup Iteration   5: 31838.444 ns/op
+Iteration   1: 31871.316 ns/op
+Iteration   2: 31775.630 ns/op
+Iteration   3: 31544.962 ns/op
+Iteration   4: 31847.859 ns/op
+Iteration   5: 31711.886 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListGet.getVector":
+  31770.173 ±(99.9%) 88.133 ns/op [Average]
+  (min, avg, max) = (31523.273, 31770.173, 31936.142), stdev = 117.655
+  CI (99.9%): [31682.040, 31858.307] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:25:04
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                            Mode  Cnt       Score      Error  Units
+TimeComplexityListGet.getArrayList   avgt   25    2577.614 ±    8.821  ns/op
+TimeComplexityListGet.getLinkedList  avgt   25  246594.652 ± 1066.416  ns/op
+TimeComplexityListGet.getVector      avgt   25   31770.173 ±   88.133  ns/op
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListSort.sortArrayList
+
+# Run progress: 0.00% complete, ETA 00:25:00
+# Fork: 1 of 5
+# Warmup Iteration   1: 3561.916 ns/op
+# Warmup Iteration   2: 3541.340 ns/op
+# Warmup Iteration   3: 3547.738 ns/op
+# Warmup Iteration   4: 3554.585 ns/op
+# Warmup Iteration   5: 3555.595 ns/op
+Iteration   1: 3561.744 ns/op
+Iteration   2: 3542.585 ns/op
+Iteration   3: 3548.758 ns/op
+Iteration   4: 3562.386 ns/op
+Iteration   5: 3548.496 ns/op
+
+# Run progress: 6.67% complete, ETA 00:23:23
+# Fork: 2 of 5
+# Warmup Iteration   1: 3614.686 ns/op
+# Warmup Iteration   2: 3571.505 ns/op
+# Warmup Iteration   3: 3576.569 ns/op
+# Warmup Iteration   4: 3576.925 ns/op
+# Warmup Iteration   5: 3580.278 ns/op
+Iteration   1: 3572.263 ns/op
+Iteration   2: 3579.977 ns/op
+Iteration   3: 3571.717 ns/op
+Iteration   4: 3592.171 ns/op
+Iteration   5: 3597.200 ns/op
+
+# Run progress: 13.33% complete, ETA 00:21:43
+# Fork: 3 of 5
+# Warmup Iteration   1: 3595.932 ns/op
+# Warmup Iteration   2: 3570.427 ns/op
+# Warmup Iteration   3: 3565.643 ns/op
+# Warmup Iteration   4: 3563.158 ns/op
+# Warmup Iteration   5: 3556.523 ns/op
+Iteration   1: 3563.109 ns/op
+Iteration   2: 3567.830 ns/op
+Iteration   3: 3562.746 ns/op
+Iteration   4: 3558.938 ns/op
+Iteration   5: 3568.748 ns/op
+
+# Run progress: 20.00% complete, ETA 00:20:03
+# Fork: 4 of 5
+# Warmup Iteration   1: 3257.613 ns/op
+# Warmup Iteration   2: 3222.839 ns/op
+# Warmup Iteration   3: 3216.236 ns/op
+# Warmup Iteration   4: 3225.302 ns/op
+# Warmup Iteration   5: 3227.654 ns/op
+Iteration   1: 3219.574 ns/op
+Iteration   2: 3239.150 ns/op
+Iteration   3: 3220.449 ns/op
+Iteration   4: 3230.092 ns/op
+Iteration   5: 3229.126 ns/op
+
+# Run progress: 26.67% complete, ETA 00:18:23
+# Fork: 5 of 5
+# Warmup Iteration   1: 3590.218 ns/op
+# Warmup Iteration   2: 3556.988 ns/op
+# Warmup Iteration   3: 3555.134 ns/op
+# Warmup Iteration   4: 3551.552 ns/op
+# Warmup Iteration   5: 3552.699 ns/op
+Iteration   1: 3564.804 ns/op
+Iteration   2: 3549.614 ns/op
+Iteration   3: 3558.648 ns/op
+Iteration   4: 3563.704 ns/op
+Iteration   5: 3556.394 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListSort.sortArrayList":
+  3497.209 ±(99.9%) 103.465 ns/op [Average]
+  (min, avg, max) = (3219.574, 3497.209, 3597.200), stdev = 138.123
+  CI (99.9%): [3393.744, 3600.674] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListSort.sortLinkedList
+
+# Run progress: 33.33% complete, ETA 00:16:42
+# Fork: 1 of 5
+# Warmup Iteration   1: 8022.316 ns/op
+# Warmup Iteration   2: 8089.208 ns/op
+# Warmup Iteration   3: 8014.683 ns/op
+# Warmup Iteration   4: 8016.515 ns/op
+# Warmup Iteration   5: 8018.830 ns/op
+Iteration   1: 8038.505 ns/op
+Iteration   2: 8028.633 ns/op
+Iteration   3: 8051.818 ns/op
+Iteration   4: 8013.816 ns/op
+Iteration   5: 8032.897 ns/op
+
+# Run progress: 40.00% complete, ETA 00:15:02
+# Fork: 2 of 5
+# Warmup Iteration   1: 8032.182 ns/op
+# Warmup Iteration   2: 8021.404 ns/op
+# Warmup Iteration   3: 7979.388 ns/op
+# Warmup Iteration   4: 7975.610 ns/op
+# Warmup Iteration   5: 7980.043 ns/op
+Iteration   1: 8013.858 ns/op
+Iteration   2: 7996.292 ns/op
+Iteration   3: 7993.185 ns/op
+Iteration   4: 7977.127 ns/op
+Iteration   5: 7973.601 ns/op
+
+# Run progress: 46.67% complete, ETA 00:13:22
+# Fork: 3 of 5
+# Warmup Iteration   1: 7866.791 ns/op
+# Warmup Iteration   2: 8032.286 ns/op
+# Warmup Iteration   3: 7984.175 ns/op
+# Warmup Iteration   4: 7981.983 ns/op
+# Warmup Iteration   5: 7976.722 ns/op
+Iteration   1: 7984.545 ns/op
+Iteration   2: 7979.420 ns/op
+Iteration   3: 7970.403 ns/op
+Iteration   4: 7952.489 ns/op
+Iteration   5: 7973.535 ns/op
+
+# Run progress: 53.33% complete, ETA 00:11:42
+# Fork: 4 of 5
+# Warmup Iteration   1: 8045.815 ns/op
+# Warmup Iteration   2: 8225.901 ns/op
+# Warmup Iteration   3: 8195.711 ns/op
+# Warmup Iteration   4: 8201.048 ns/op
+# Warmup Iteration   5: 8184.842 ns/op
+Iteration   1: 8189.492 ns/op
+Iteration   2: 8229.100 ns/op
+Iteration   3: 8192.603 ns/op
+Iteration   4: 8192.730 ns/op
+Iteration   5: 8198.837 ns/op
+
+# Run progress: 60.00% complete, ETA 00:10:01
+# Fork: 5 of 5
+# Warmup Iteration   1: 6394.820 ns/op
+# Warmup Iteration   2: 6104.088 ns/op
+# Warmup Iteration   3: 6095.575 ns/op
+# Warmup Iteration   4: 6084.894 ns/op
+# Warmup Iteration   5: 6090.950 ns/op
+Iteration   1: 6096.027 ns/op
+Iteration   2: 6107.763 ns/op
+Iteration   3: 6107.099 ns/op
+Iteration   4: 6105.549 ns/op
+Iteration   5: 6086.917 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListSort.sortLinkedList":
+  7659.450 ±(99.9%) 599.120 ns/op [Average]
+  (min, avg, max) = (6086.917, 7659.450, 8229.100), stdev = 799.808
+  CI (99.9%): [7060.330, 8258.569] (assumes normal distribution)
+
+
+# JMH version: 1.33
+# VM version: JDK 1.8.0_242, OpenJDK 64-Bit Server VM, 25.242-b08
+# VM invoker: java.exe
+# VM options: <none>
+# Blackhole mode: full + dont-inline hint (default, use -Djmh.blackhole.autoDetect=true to auto-detect)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.lxxxv.TimeComplexityListSort.sortVector
+
+# Run progress: 66.67% complete, ETA 00:08:21
+# Fork: 1 of 5
+# Warmup Iteration   1: 3277.131 ns/op
+# Warmup Iteration   2: 3241.528 ns/op
+# Warmup Iteration   3: 3255.550 ns/op
+# Warmup Iteration   4: 3236.987 ns/op
+# Warmup Iteration   5: 3240.546 ns/op
+Iteration   1: 3230.425 ns/op
+Iteration   2: 3245.148 ns/op
+Iteration   3: 3238.657 ns/op
+Iteration   4: 3228.592 ns/op
+Iteration   5: 3227.057 ns/op
+
+# Run progress: 73.33% complete, ETA 00:06:41
+# Fork: 2 of 5
+# Warmup Iteration   1: 3627.168 ns/op
+# Warmup Iteration   2: 3597.550 ns/op
+# Warmup Iteration   3: 3596.336 ns/op
+# Warmup Iteration   4: 3570.560 ns/op
+# Warmup Iteration   5: 3574.367 ns/op
+Iteration   1: 3572.790 ns/op
+Iteration   2: 3577.140 ns/op
+Iteration   3: 3574.580 ns/op
+Iteration   4: 3582.672 ns/op
+Iteration   5: 3588.570 ns/op
+
+# Run progress: 80.00% complete, ETA 00:05:00
+# Fork: 3 of 5
+# Warmup Iteration   1: 3610.639 ns/op
+# Warmup Iteration   2: 3549.125 ns/op
+# Warmup Iteration   3: 3563.443 ns/op
+# Warmup Iteration   4: 3564.101 ns/op
+# Warmup Iteration   5: 3549.361 ns/op
+Iteration   1: 3554.241 ns/op
+Iteration   2: 3563.296 ns/op
+Iteration   3: 3552.352 ns/op
+Iteration   4: 3560.521 ns/op
+Iteration   5: 3554.875 ns/op
+
+# Run progress: 86.67% complete, ETA 00:03:20
+# Fork: 4 of 5
+# Warmup Iteration   1: 3603.532 ns/op
+# Warmup Iteration   2: 3561.527 ns/op
+# Warmup Iteration   3: 3560.028 ns/op
+# Warmup Iteration   4: 3573.959 ns/op
+# Warmup Iteration   5: 3565.697 ns/op
+Iteration   1: 3575.310 ns/op
+Iteration   2: 3568.135 ns/op
+Iteration   3: 3571.074 ns/op
+Iteration   4: 3573.297 ns/op
+Iteration   5: 3578.965 ns/op
+
+# Run progress: 93.33% complete, ETA 00:01:40
+# Fork: 5 of 5
+# Warmup Iteration   1: 3610.784 ns/op
+# Warmup Iteration   2: 3587.871 ns/op
+# Warmup Iteration   3: 3597.012 ns/op
+# Warmup Iteration   4: 3570.508 ns/op
+# Warmup Iteration   5: 3574.655 ns/op
+Iteration   1: 3573.789 ns/op
+Iteration   2: 3577.497 ns/op
+Iteration   3: 3572.312 ns/op
+Iteration   4: 3570.588 ns/op
+Iteration   5: 3580.983 ns/op
+
+
+Result "com.lxxxv.TimeComplexityListSort.sortVector":
+  3503.715 ±(99.9%) 103.342 ns/op [Average]
+  (min, avg, max) = (3227.057, 3503.715, 3588.570), stdev = 137.959
+  CI (99.9%): [3400.372, 3607.057] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:25:04
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                              Mode  Cnt     Score     Error  Units
+TimeComplexityListSort.sortArrayList   avgt   25  3497.209 ± 103.465  ns/op
+TimeComplexityListSort.sortLinkedList  avgt   25  7659.450 ± 599.120  ns/op
+TimeComplexityListSort.sortVector      avgt   25  3503.715 ± 103.342  ns/op
+PS  > 
+
