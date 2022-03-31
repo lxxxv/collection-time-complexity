@@ -18,5 +18,9 @@ import java.util.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class SetDel
 {
-
+    public Set<String> benchHashSet;
+    public Set<String> benchLinkedHashSet;
+    public Set<String> benchTreeSet;
+    public Set<String> benchConcurrentSkipListSet;
+    public Set<String> benchCopyOnWriteArraySet;
 }
