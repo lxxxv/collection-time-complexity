@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class TimeComplexityListAdd implements ITimeComplexity
+public class ListGet implements ITimeComplexity
 {
     Random rm;
 
@@ -32,46 +32,44 @@ public class TimeComplexityListAdd implements ITimeComplexity
         benchArrayList = new ArrayList<>();
         benchLinkedList = new LinkedList<>();
         benchVector = new Vector<>();
+
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
+            benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+            benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+            benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+        }
     }
 
     @Benchmark
-    public void addArrayList(Blackhole bl)
+    public void getArrayList(Blackhole bl)
     {
-        benchArrayList.clear();
-
         String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        for (int loop = 0; loop < benchArrayList.size(); loop++)
         {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchArrayList.add(result);
+            result = benchArrayList.get(loop);
             bl.consume(result);
         }
     }
 
     @Benchmark
-    public void addLinkedList(Blackhole bl)
+    public void getLinkedList(Blackhole bl)
     {
-        benchLinkedList.clear();
-
         String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        for (int loop = 0; loop < benchLinkedList.size(); loop++)
         {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchLinkedList.add(result);
+            result = benchLinkedList.get(loop);
             bl.consume(result);
         }
     }
 
     @Benchmark
-    public void addVector(Blackhole bl)
+    public void getVector(Blackhole bl)
     {
-        benchVector.clear();
-
         String result;
-        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        for (int loop = 0; loop < benchVector.size(); loop++)
         {
-            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
-            benchVector.add(result);
+            result = benchVector.get(loop);
             bl.consume(result);
         }
     }
@@ -79,7 +77,7 @@ public class TimeComplexityListAdd implements ITimeComplexity
     public static void main(String args[]) throws Exception
     {
         Options opt = new OptionsBuilder()
-                .include(TimeComplexityListAdd.class.getSimpleName())
+                .include(ListGet.class.getSimpleName())
                 .forks(1)
                 .build();
 

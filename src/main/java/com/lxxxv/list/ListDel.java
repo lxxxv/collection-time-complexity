@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class TimeComplexityListGet implements ITimeComplexity
+public class ListDel implements ITimeComplexity
 {
     Random rm;
 
@@ -32,52 +32,57 @@ public class TimeComplexityListGet implements ITimeComplexity
         benchArrayList = new ArrayList<>();
         benchLinkedList = new LinkedList<>();
         benchVector = new Vector<>();
+    }
 
+    @Benchmark
+    public void delArrayList(Blackhole bl)
+    {
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
             benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+        }
+
+        while(benchArrayList.size() > 0)
+        {
+            benchArrayList.remove(0);
+            bl.consume(benchArrayList.size());
+        }
+    }
+
+    @Benchmark
+    public void delLinkedList(Blackhole bl)
+    {
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
             benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
+        }
+
+        while(benchLinkedList.size() > 0)
+        {
+            benchLinkedList.remove(0);
+            bl.consume(benchLinkedList.size());
+        }
+    }
+
+    @Benchmark
+    public void delVector(Blackhole bl)
+    {
+        for (int loop = 0; loop < LOOP_COUNT; loop++)
+        {
             benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
         }
-    }
 
-    @Benchmark
-    public void getArrayList(Blackhole bl)
-    {
-        String result;
-        for (int loop = 0; loop < benchArrayList.size(); loop++)
+        while(benchVector.size() > 0)
         {
-            result = benchArrayList.get(loop);
-            bl.consume(result);
-        }
-    }
-
-    @Benchmark
-    public void getLinkedList(Blackhole bl)
-    {
-        String result;
-        for (int loop = 0; loop < benchLinkedList.size(); loop++)
-        {
-            result = benchLinkedList.get(loop);
-            bl.consume(result);
-        }
-    }
-
-    @Benchmark
-    public void getVector(Blackhole bl)
-    {
-        String result;
-        for (int loop = 0; loop < benchVector.size(); loop++)
-        {
-            result = benchVector.get(loop);
-            bl.consume(result);
+            benchVector.remove(0);
+            bl.consume(benchVector.size());
         }
     }
 
     public static void main(String args[]) throws Exception
     {
         Options opt = new OptionsBuilder()
-                .include(TimeComplexityListGet.class.getSimpleName())
+                .include(ListDel.class.getSimpleName())
                 .forks(1)
                 .build();
 

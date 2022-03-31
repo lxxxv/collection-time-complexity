@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class TimeComplexityListSort implements ITimeComplexity
+public class ListSort implements ITimeComplexity
 {
     Random rm;
 
@@ -68,7 +68,7 @@ public class TimeComplexityListSort implements ITimeComplexity
     public static void main(String args[]) throws Exception
     {
         Options opt = new OptionsBuilder()
-                .include(TimeComplexityListSort.class.getSimpleName())
+                .include(ListSort.class.getSimpleName())
                 .forks(1)
                 .build();
 

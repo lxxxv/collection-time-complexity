@@ -16,7 +16,7 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-public class TimeComplexityListDel implements ITimeComplexity
+public class ListAdd implements ITimeComplexity
 {
     Random rm;
 
@@ -35,54 +35,51 @@ public class TimeComplexityListDel implements ITimeComplexity
     }
 
     @Benchmark
-    public void delArrayList(Blackhole bl)
+    public void addArrayList(Blackhole bl)
     {
+        benchArrayList.clear();
+
+        String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchArrayList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-        }
-
-        while(benchArrayList.size() > 0)
-        {
-            benchArrayList.remove(0);
-            bl.consume(benchArrayList.size());
+            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
+            benchArrayList.add(result);
+            bl.consume(result);
         }
     }
 
     @Benchmark
-    public void delLinkedList(Blackhole bl)
+    public void addLinkedList(Blackhole bl)
     {
+        benchLinkedList.clear();
+
+        String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchLinkedList.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-        }
-
-        while(benchLinkedList.size() > 0)
-        {
-            benchLinkedList.remove(0);
-            bl.consume(benchLinkedList.size());
+            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
+            benchLinkedList.add(result);
+            bl.consume(result);
         }
     }
 
     @Benchmark
-    public void delVector(Blackhole bl)
+    public void addVector(Blackhole bl)
     {
+        benchVector.clear();
+
+        String result;
         for (int loop = 0; loop < LOOP_COUNT; loop++)
         {
-            benchVector.add(Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop));
-        }
-
-        while(benchVector.size() > 0)
-        {
-            benchVector.remove(0);
-            bl.consume(benchVector.size());
+            result = Integer.toString(rm.nextInt()) + "_" + Integer.toString(loop);
+            benchVector.add(result);
+            bl.consume(result);
         }
     }
 
     public static void main(String args[]) throws Exception
     {
         Options opt = new OptionsBuilder()
-                .include(TimeComplexityListDel.class.getSimpleName())
+                .include(ListAdd.class.getSimpleName())
                 .forks(1)
                 .build();
 

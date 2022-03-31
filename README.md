@@ -8,7 +8,7 @@ TimeComplexityListDel.delArrayList     avgt   25   98604.244 ±  961.734  ns/op 
 TimeComplexityListDel.delLinkedList    avgt   25   76055.479 ±  835.447  ns/op <br/>
 TimeComplexityListDel.delVector        avgt   25  139189.893 ± 4012.035  ns/op <br/>
 TimeComplexityListGet.getArrayList     avgt   25    2577.614 ±    8.821  ns/op <br/>
-TimeComplexityListGet.getLinkedList    avgt   25  246594.652 ± 1066.416  ns/op <br/>
+nTimeComplexityListGet.getLinkedList    avgt   25  246594.652 ± 1066.416  ns/op <br/>
 TimeComplexityListGet.getVector        avgt   25   31770.173 ±   88.133  ns/op <br/>
 TimeComplexityListSort.sortArrayList   avgt   25    3497.209 ±  103.465  ns/op <br/>
 TimeComplexityListSort.sortLinkedList  avgt   25    7659.450 ±  599.120  ns/op <br/>
