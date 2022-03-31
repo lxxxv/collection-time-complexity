@@ -17,8 +17,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Warmup(iterations=2, time=2)
-@Measurement(iterations=2, time=2)
+@Warmup(iterations=1, time=5)
+@Measurement(iterations=1, time=5)
 public class QueueAdd
 {
     public Queue<String> benchPriorityQueue;
@@ -43,6 +43,8 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchPriorityQueue.clear();
     }
 
     @Benchmark
@@ -64,6 +66,8 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchArrayBlockingQueue.clear();
     }
 
     @Benchmark
@@ -79,6 +83,8 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchConcurrentLinkedQueue.clear();
     }
 
     @Benchmark
@@ -94,6 +100,8 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchLinkedBlockingQueue.clear();
     }
 
     @Benchmark
@@ -109,6 +117,8 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchLinkedTransferQueue.clear();
     }
 
     @Benchmark
@@ -124,6 +134,8 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchPriorityBlockingQueue.clear();
     }
 
     @Benchmark
@@ -139,5 +151,7 @@ public class QueueAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchSynchronousQueue.clear();
     }
 }

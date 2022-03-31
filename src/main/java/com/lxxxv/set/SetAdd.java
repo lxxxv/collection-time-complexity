@@ -17,8 +17,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Warmup(iterations=2, time=2)
-@Measurement(iterations=2, time=2)
+@Warmup(iterations=1, time=5)
+@Measurement(iterations=1, time=5)
 public class SetAdd
 {
     public Set<String> benchHashSet;
@@ -40,6 +40,8 @@ public class SetAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchHashSet.clear();
     }
 
     @Benchmark
@@ -55,6 +57,8 @@ public class SetAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchLinkedHashSet.clear();
     }
 
     @Benchmark
@@ -70,6 +74,8 @@ public class SetAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchTreeSet.clear();
     }
 
     @Benchmark
@@ -85,6 +91,8 @@ public class SetAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchConcurrentSkipListSet.clear();
     }
 
     @Benchmark
@@ -100,5 +108,7 @@ public class SetAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchCopyOnWriteArraySet.clear();
     }
 }

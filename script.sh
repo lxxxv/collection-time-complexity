@@ -1,0 +1,4 @@
+cd D:\project\lxxxv\collection-time-complexity ; mvn clean install
+
+java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar ListAdd ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar ListDel ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar ListGet ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar ListSort ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar MapAdd ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar MapDel ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar MapGet ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar QueueAdd ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar QueueDel ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar QueueGet ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar SetAdd ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar SetDel ; java -Xms4096m -Xmx10240m -jar .\target\benchmarks.jar SetGet
+

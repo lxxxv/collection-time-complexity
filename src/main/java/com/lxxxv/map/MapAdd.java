@@ -16,8 +16,8 @@ import java.util.*;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
-@Warmup(iterations=2, time=2)
-@Measurement(iterations=2, time=2)
+@Warmup(iterations=1, time=5)
+@Measurement(iterations=1, time=5)
 public class MapAdd
 {
     public Map<String, String> benchHashMap;
@@ -39,6 +39,8 @@ public class MapAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchHashMap.clear();
     }
 
     @Benchmark
@@ -54,6 +56,8 @@ public class MapAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchTreeMap.clear();
     }
 
     @Benchmark
@@ -69,6 +73,8 @@ public class MapAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchLinkedHashMap.clear();
     }
 
     @Benchmark
@@ -84,6 +90,8 @@ public class MapAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchIdentityHashMap.clear();
     }
 
     @Benchmark
@@ -99,6 +107,8 @@ public class MapAdd
                 bl.consume(Sender.getData());
             }
         ).start();
+
+        benchWeakHashMap.clear();
     }
 }
 
