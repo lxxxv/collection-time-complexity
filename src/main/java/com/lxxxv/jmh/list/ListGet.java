@@ -28,15 +28,15 @@ public class ListGet
         benchLinkedList = new LinkedList<>();
         benchVector = new Vector<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchArrayList.add(Sender.getData());
-                benchLinkedList.add(Sender.getData());
-                benchVector.add(Sender.getData());
+                benchArrayList.add(Sender);
+                benchLinkedList.add(Sender);
+                benchVector.add(Sender);
             }
-        ).start();
+        );
     }
 
     @Benchmark

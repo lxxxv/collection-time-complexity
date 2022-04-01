@@ -26,14 +26,14 @@ public class ListAdd
     {
         benchArrayList = new ArrayList<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchArrayList.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchArrayList.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchArrayList.clear();
     }
@@ -43,14 +43,14 @@ public class ListAdd
     {
         benchLinkedList = new LinkedList<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedList.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchLinkedList.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchLinkedList.clear();
     }
@@ -60,14 +60,14 @@ public class ListAdd
     {
         benchVector = new Vector<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchVector.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchVector.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchVector.clear();
     }

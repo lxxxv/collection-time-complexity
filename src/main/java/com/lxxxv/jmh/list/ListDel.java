@@ -26,13 +26,7 @@ public class ListDel
     {
         benchArrayList = new ArrayList<>();
 
-        new CallBackAdd
-        (
-            (Sender)->
-            {
-                benchArrayList.add(Sender.getData());
-            }
-        ).start();
+        new CallBackRandom().getString((Sender)-> benchArrayList.add(Sender));
 
         while(benchArrayList.size() > 0)
         {
@@ -46,13 +40,7 @@ public class ListDel
     {
         benchLinkedList = new LinkedList<>();
 
-        new CallBackAdd
-        (
-            (Sender)->
-            {
-                benchLinkedList.add(Sender.getData());
-            }
-        ).start();
+        new CallBackRandom().getString((Sender)-> benchLinkedList.add(Sender));
 
         while(benchLinkedList.size() > 0)
         {
@@ -66,13 +54,7 @@ public class ListDel
     {
         benchVector = new Vector<>();
 
-        new CallBackAdd
-        (
-            (Sender)->
-            {
-                benchVector.add(Sender.getData());
-            }
-        ).start();
+        new CallBackRandom().getString((Sender)-> benchVector.add(Sender));
 
         while(benchVector.size() > 0)
         {
