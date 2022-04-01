@@ -1,12 +1,8 @@
-package com.lxxxv.queue;
+package com.lxxxv.jmh.queue;
 
-import com.lxxxv.CallBackAdd;
-import com.lxxxv.Policy;
+import com.lxxxv.*;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.util.concurrent.*;
 import java.util.*;
@@ -19,7 +15,7 @@ import java.util.*;
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations=1, time=5)
 @Measurement(iterations=1, time=5)
-public class QueueAdd
+public class QueueGet
 {
     public Queue<String> benchPriorityQueue;
     public Queue<String> benchArrayBlockingQueue;
@@ -31,7 +27,7 @@ public class QueueAdd
     public Queue<String> benchSynchronousQueue;
 
     @Benchmark
-    public void addPriorityQueue(Blackhole bl)
+    public void getPriorityQueue(Blackhole bl)
     {
         benchPriorityQueue = new PriorityQueue<>();
 
@@ -40,22 +36,19 @@ public class QueueAdd
             (Sender)->
             {
                 benchPriorityQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
 
-        benchPriorityQueue.clear();
+        while(benchPriorityQueue.size() > 0)
+        {
+            benchPriorityQueue.poll();
+            bl.consume(benchPriorityQueue.size());
+        }
     }
 
     @Benchmark
-    public void addArrayBlockingQueue(Blackhole bl)
+    public void getArrayBlockingQueue(Blackhole bl)
     {
-        // https://codechacha.com/ko/java-arrayblockingqueue/
-        // ArrayBlockingQueue는 BlockingQueue 인터페이스를 구현
-        // Queue를 생성할 때 크기를 설정하며 내부적으로 배열을 사용하여 아이템을 저장
-        // 동시성에 안전하여 멀티 쓰레드에서 synchronized 없이 사용 가능
-        // 아이템을 꺼낼 때 비어있으며 추가될 때까지 기다림
-        // 아이템을 추가할 때 Queue가 가득차있으면 Exception이 발생하거나 일정 시간 기다릴 수 있음
         benchArrayBlockingQueue = new ArrayBlockingQueue<>(Policy.LOOP_COUNT);
 
         new CallBackAdd
@@ -63,15 +56,18 @@ public class QueueAdd
             (Sender)->
             {
                 benchArrayBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
 
-        benchArrayBlockingQueue.clear();
+        while(benchArrayBlockingQueue.size() > 0)
+        {
+            benchArrayBlockingQueue.poll();
+            bl.consume(benchArrayBlockingQueue.size());
+        }
     }
 
     @Benchmark
-    public void addConcurrentLinkedQueue(Blackhole bl)
+    public void getConcurrentLinkedQueue(Blackhole bl)
     {
         benchConcurrentLinkedQueue = new ConcurrentLinkedQueue<>();
 
@@ -80,15 +76,18 @@ public class QueueAdd
             (Sender)->
             {
                 benchConcurrentLinkedQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
 
-        benchConcurrentLinkedQueue.clear();
+        while(benchConcurrentLinkedQueue.size() > 0)
+        {
+            benchConcurrentLinkedQueue.poll();
+            bl.consume(benchConcurrentLinkedQueue.size());
+        }
     }
 
     @Benchmark
-    public void addLinkedBlockingQueue(Blackhole bl)
+    public void getLinkedBlockingQueue(Blackhole bl)
     {
         benchLinkedBlockingQueue = new LinkedBlockingQueue<>();
 
@@ -97,15 +96,18 @@ public class QueueAdd
             (Sender)->
             {
                 benchLinkedBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
 
-        benchLinkedBlockingQueue.clear();
+        while(benchLinkedBlockingQueue.size() > 0)
+        {
+            benchLinkedBlockingQueue.poll();
+            bl.consume(benchLinkedBlockingQueue.size());
+        }
     }
 
     @Benchmark
-    public void addLinkedTransferQueue(Blackhole bl)
+    public void getLinkedTransferQueue(Blackhole bl)
     {
         benchLinkedTransferQueue = new LinkedTransferQueue<>();
 
@@ -114,15 +116,18 @@ public class QueueAdd
             (Sender)->
             {
                 benchLinkedTransferQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
 
-        benchLinkedTransferQueue.clear();
+        while(benchLinkedTransferQueue.size() > 0)
+        {
+            benchLinkedTransferQueue.poll();
+            bl.consume(benchLinkedTransferQueue.size());
+        }
     }
 
     @Benchmark
-    public void addPriorityBlockingQueue(Blackhole bl)
+    public void getPriorityBlockingQueue(Blackhole bl)
     {
         benchPriorityBlockingQueue = new PriorityBlockingQueue<>();
 
@@ -131,10 +136,33 @@ public class QueueAdd
             (Sender)->
             {
                 benchPriorityBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
             }
         ).start();
 
-        benchPriorityBlockingQueue.clear();
+        while(benchPriorityBlockingQueue.size() > 0)
+        {
+            benchPriorityBlockingQueue.poll();
+            bl.consume(benchPriorityBlockingQueue.size());
+        }
+    }
+
+    @Benchmark
+    public void getSynchronousQueue(Blackhole bl)
+    {
+        benchSynchronousQueue = new SynchronousQueue<>();
+
+        new CallBackAdd
+        (
+            (Sender)->
+            {
+                benchSynchronousQueue.add(Sender.getData());
+            }
+        ).start();
+
+        while(benchSynchronousQueue.size() > 0)
+        {
+            benchSynchronousQueue.poll();
+            bl.consume(benchSynchronousQueue.size());
+        }
     }
 }
