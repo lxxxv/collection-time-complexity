@@ -28,14 +28,14 @@ public class SetAdd
     {
         benchHashSet = new HashSet<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchHashSet.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchHashSet.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchHashSet.clear();
     }
@@ -45,14 +45,14 @@ public class SetAdd
     {
         benchLinkedHashSet = new LinkedHashSet<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedHashSet.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchLinkedHashSet.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchLinkedHashSet.clear();
     }
@@ -62,14 +62,14 @@ public class SetAdd
     {
         benchTreeSet = new TreeSet<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchTreeSet.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchTreeSet.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchTreeSet.clear();
     }
@@ -79,14 +79,14 @@ public class SetAdd
     {
         benchConcurrentSkipListSet = new ConcurrentSkipListSet<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchConcurrentSkipListSet.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchConcurrentSkipListSet.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchConcurrentSkipListSet.clear();
     }
@@ -96,14 +96,14 @@ public class SetAdd
     {
         benchCopyOnWriteArraySet = new CopyOnWriteArraySet<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchCopyOnWriteArraySet.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchCopyOnWriteArraySet.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchCopyOnWriteArraySet.clear();
     }

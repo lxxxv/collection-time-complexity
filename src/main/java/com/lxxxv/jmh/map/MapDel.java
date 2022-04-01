@@ -34,13 +34,13 @@ public class MapDel
     {
         benchHashMap = new HashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchHashMap.put(Sender.getData(), Sender.getData());
+                benchHashMap.put(Sender, Sender);
             }
-        ).start();
+        );
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchHashMap.keySet()) {keyList.add(key);}
@@ -56,13 +56,13 @@ public class MapDel
     {
         benchTreeMap = new TreeMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchTreeMap.put(Sender.getData(), Sender.getData());
+                benchTreeMap.put(Sender, Sender);
             }
-        ).start();
+        );
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchTreeMap.keySet()) {keyList.add(key);}
@@ -78,13 +78,13 @@ public class MapDel
     {
         benchLinkedHashMap = new LinkedHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedHashMap.put(Sender.getData(), Sender.getData());
+                benchLinkedHashMap.put(Sender, Sender);
             }
-        ).start();
+        );
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchLinkedHashMap.keySet()) {keyList.add(key);}
@@ -100,13 +100,13 @@ public class MapDel
     {
         benchIdentityHashMap = new IdentityHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchIdentityHashMap.put(Sender.getData(), Sender.getData());
+                benchIdentityHashMap.put(Sender, Sender);
             }
-        ).start();
+        );
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchIdentityHashMap.keySet()) {keyList.add(key);}
@@ -122,13 +122,13 @@ public class MapDel
     {
         benchWeakHashMap = new WeakHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchWeakHashMap.put(Sender.getData(), Sender.getData());
+                benchWeakHashMap.put(Sender, Sender);
             }
-        ).start();
+        );
 
         List<String> keyList = new ArrayList<>();
         for(String key: benchWeakHashMap.keySet()) {keyList.add(key);}

@@ -32,17 +32,17 @@ public class MapGet
         benchIdentityHashMap = new IdentityHashMap<>();
         benchWeakHashMap = new WeakHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchHashMap.put(Sender.getData(), Sender.getData());
-                benchTreeMap.put(Sender.getData(), Sender.getData());
-                benchLinkedHashMap.put(Sender.getData(), Sender.getData());
-                benchIdentityHashMap.put(Sender.getData(), Sender.getData());
-                benchWeakHashMap.put(Sender.getData(), Sender.getData());
+                benchHashMap.put(Sender, Sender);
+                benchTreeMap.put(Sender, Sender);
+                benchLinkedHashMap.put(Sender, Sender);
+                benchIdentityHashMap.put(Sender, Sender);
+                benchWeakHashMap.put(Sender, Sender);
             }
-        ).start();
+        );
     }
 
     @Benchmark

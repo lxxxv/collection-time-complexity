@@ -32,17 +32,17 @@ public class SetGet
         benchConcurrentSkipListSet = new ConcurrentSkipListSet<>();
         benchCopyOnWriteArraySet = new CopyOnWriteArraySet<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchHashSet.add(Sender.getData());
-                benchLinkedHashSet.add(Sender.getData());
-                benchTreeSet.add(Sender.getData());
-                benchConcurrentSkipListSet.add(Sender.getData());
-                benchCopyOnWriteArraySet.add(Sender.getData());
+                benchHashSet.add(Sender);
+                benchLinkedHashSet.add(Sender);
+                benchTreeSet.add(Sender);
+                benchConcurrentSkipListSet.add(Sender);
+                benchCopyOnWriteArraySet.add(Sender);
             }
-        ).start();
+        );
     }
 
     @Benchmark

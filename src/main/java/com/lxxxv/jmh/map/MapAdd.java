@@ -28,14 +28,14 @@ public class MapAdd
     {
         benchHashMap = new HashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchHashMap.put(Sender.getData(), Sender.getData());
-                bl.consume(Sender.getData());
+                benchHashMap.put(Sender, Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchHashMap.clear();
     }
@@ -45,14 +45,14 @@ public class MapAdd
     {
         benchTreeMap = new TreeMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchTreeMap.put(Sender.getData(), Sender.getData());
-                bl.consume(Sender.getData());
+                benchTreeMap.put(Sender, Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchTreeMap.clear();
     }
@@ -62,14 +62,14 @@ public class MapAdd
     {
         benchLinkedHashMap = new LinkedHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedHashMap.put(Sender.getData(), Sender.getData());
-                bl.consume(Sender.getData());
+                benchLinkedHashMap.put(Sender, Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchLinkedHashMap.clear();
     }
@@ -79,14 +79,14 @@ public class MapAdd
     {
         benchIdentityHashMap = new IdentityHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchIdentityHashMap.put(Sender.getData(), Sender.getData());
-                bl.consume(Sender.getData());
+                benchIdentityHashMap.put(Sender, Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchIdentityHashMap.clear();
     }
@@ -96,14 +96,14 @@ public class MapAdd
     {
         benchWeakHashMap = new WeakHashMap<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchWeakHashMap.put(Sender.getData(), Sender.getData());
-                bl.consume(Sender.getData());
+                benchWeakHashMap.put(Sender, Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchWeakHashMap.clear();
     }

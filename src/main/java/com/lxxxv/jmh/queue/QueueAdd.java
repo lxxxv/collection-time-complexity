@@ -31,14 +31,14 @@ public class QueueAdd
     {
         benchPriorityQueue = new PriorityQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchPriorityQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchPriorityQueue.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchPriorityQueue.clear();
     }
@@ -54,14 +54,14 @@ public class QueueAdd
         // 아이템을 추가할 때 Queue가 가득차있으면 Exception이 발생하거나 일정 시간 기다릴 수 있음
         benchArrayBlockingQueue = new ArrayBlockingQueue<>(Policy.LOOP_COUNT);
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchArrayBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchArrayBlockingQueue.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchArrayBlockingQueue.clear();
     }
@@ -71,14 +71,14 @@ public class QueueAdd
     {
         benchConcurrentLinkedQueue = new ConcurrentLinkedQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchConcurrentLinkedQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchConcurrentLinkedQueue.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchConcurrentLinkedQueue.clear();
     }
@@ -88,14 +88,14 @@ public class QueueAdd
     {
         benchLinkedBlockingQueue = new LinkedBlockingQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchLinkedBlockingQueue.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchLinkedBlockingQueue.clear();
     }
@@ -105,14 +105,14 @@ public class QueueAdd
     {
         benchLinkedTransferQueue = new LinkedTransferQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedTransferQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchLinkedTransferQueue.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchLinkedTransferQueue.clear();
     }
@@ -122,14 +122,14 @@ public class QueueAdd
     {
         benchPriorityBlockingQueue = new PriorityBlockingQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchPriorityBlockingQueue.add(Sender.getData());
-                bl.consume(Sender.getData());
+                benchPriorityBlockingQueue.add(Sender);
+                bl.consume(Sender);
             }
-        ).start();
+        );
 
         benchPriorityBlockingQueue.clear();
     }

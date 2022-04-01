@@ -31,13 +31,13 @@ public class QueueDel
     {
         benchPriorityQueue = new PriorityQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchPriorityQueue.add(Sender.getData());
+                benchPriorityQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchPriorityQueue.size() > 0)
         {
@@ -51,13 +51,13 @@ public class QueueDel
     {
         benchArrayBlockingQueue = new ArrayBlockingQueue<>(Policy.LOOP_COUNT);
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchArrayBlockingQueue.add(Sender.getData());
+                benchArrayBlockingQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchArrayBlockingQueue.size() > 0)
         {
@@ -71,13 +71,13 @@ public class QueueDel
     {
         benchConcurrentLinkedQueue = new ConcurrentLinkedQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchConcurrentLinkedQueue.add(Sender.getData());
+                benchConcurrentLinkedQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchConcurrentLinkedQueue.size() > 0)
         {
@@ -91,13 +91,13 @@ public class QueueDel
     {
         benchLinkedBlockingQueue = new LinkedBlockingQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedBlockingQueue.add(Sender.getData());
+                benchLinkedBlockingQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchLinkedBlockingQueue.size() > 0)
         {
@@ -111,13 +111,13 @@ public class QueueDel
     {
         benchLinkedTransferQueue = new LinkedTransferQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchLinkedTransferQueue.add(Sender.getData());
+                benchLinkedTransferQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchLinkedTransferQueue.size() > 0)
         {
@@ -131,13 +131,13 @@ public class QueueDel
     {
         benchPriorityBlockingQueue = new PriorityBlockingQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchPriorityBlockingQueue.add(Sender.getData());
+                benchPriorityBlockingQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchPriorityBlockingQueue.size() > 0)
         {
@@ -151,13 +151,13 @@ public class QueueDel
     {
         benchSynchronousQueue = new SynchronousQueue<>();
 
-        new CallBackAdd
+        new CallBackRandom().getString
         (
             (Sender)->
             {
-                benchSynchronousQueue.add(Sender.getData());
+                benchSynchronousQueue.add(Sender);
             }
-        ).start();
+        );
 
         while(benchSynchronousQueue.size() > 0)
         {
