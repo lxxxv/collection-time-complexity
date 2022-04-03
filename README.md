@@ -34,3 +34,33 @@ QueueAdd.addLinkedBlockingQueue    avgt    5  110296.138 ± 8812.672   ns/op  1 
 QueueAdd.addLinkedTransferQueue    avgt    5  120649.222 ± 7731.749   ns/op <br/>
 QueueAdd.addPriorityBlockingQueue  avgt    5  114509.500 ± 9300.943   ns/op <br/>
 QueueAdd.addPriorityQueue          avgt    5  110348.074 ± 5915.827   ns/op <br/> 
+ <br/>
+quick benchmark <br/>
+ <br/>
+ListAdd ArrayList score      : 154670 <br/>
+ListAdd LinkedList score     : 41372 <br/>
+ListAdd Vector score         : 243787 <br/>
+ListDel ArrayList score      : 2720500 <br/>
+ListDel LinkedList score     : 18656 <br/>
+ListDel Vector score         : 2622030 <br/>
+ListGet ArrayList score      : 9391 <br/>
+ListGet LinkedList score     : 121229914 <br/>
+ListGet Vector score         : 7161 <br/>
+ListSort ArrayList score     : 144208 <br/>
+ListSort LinkedList score    : 139568 <br/>
+ListSort Vector score        : 115030 <br/>
+MapAdd HashMap score         : 73149 <br/>
+MapAdd TreeMap score         : 232605 <br/>
+MapAdd LinkedHashMap score   : 69813 <br/>
+MapAdd IdentityHashMap score : 323306 <br/>
+MapAdd WeakHashMap score     : 75707 <br/>
+MapDel HashMap score         : 67729 <br/>
+MapDel TreeMap score         : 122498 <br/>
+MapDel LinkedHashMap score   : 44828 <br/>
+MapDel IdentityHashMap score : 43816 <br/>
+MapDel WeakHashMap score     : 63005 <br/>
+MapGet HashMap score         : 44597 <br/>
+MapGet TreeMap score         : 96463 <br/>
+MapGet LinkedHashMap score   : 26520 <br/>
+MapGet IdentityHashMap score : 32189 <br/>
+MapGet WeakHashMap score     : 44869 <br/>
