@@ -11,7 +11,7 @@ import com.lxxxv.Policy;
 
 public class CallBackRandom
 {
-    private final int MAX_LOOP = 1000;
+    private final int MAX_LOOP = Policy.LOOP_COUNT;
 
     private void buildString(int _maxLoop, Consumer<String> _caller)
     {
