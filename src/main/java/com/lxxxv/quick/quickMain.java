@@ -21,8 +21,7 @@ public class quickMain
         new MapDel().execute();
         new MapGet().execute();
 
-//        new QueueAdd().execute();
-//        new QueueDel().execute();
-//        new QueueGet().execute();
+        new QueueAdd().execute();
+        new QueueGet().execute();
     }
 }
