@@ -1,5 +1,65 @@
 # collection-time-complexity
 
+JAVA
++------------+------------------------+-----------+------------------------------------+-----------+--------------+-------------+
+|   group    |          name          |   type    |             inherited              | Cloneable | Serializable | thread safe |
++------------+------------------------+-----------+------------------------------------+-----------+--------------+-------------+
+| List       | LinkedList             | class     | AbstractSequentialList,List,Deque  | O         | O            | X           |
+| List       | ArrayList              | class     | AbstractList,List,RandomAccess     | O         | O            | X           |
+| List       | Vector                 | class     | AbstractList,List,RandomAccess     | O         | O            | O           |
+| List       | CopyOnWriteArrayList   | class     | List,RandomAccess                  | O         | O            | O           |
+| Map        | Hashtable              | class     | Dictionary,Map                     | O         | O            | O           |
+| Map        | EnumMap                | class     | AbstractMap                        | O         | O            | X           |
+| Map        | HashMap                | class     | AbstractMap,Map                    | O         | O            | X           |
+| Map        | LinkedHashMap          | class     | HashMap,Map                        | X         | X            | X           |
+| Map        | IdentityHashMap        | class     | AbstractMap,Map                    | O         | O            | X           |
+| Map        | WeakHashMap            | class     | AbstractMap,Map                    | X         | X            | X           |
+| Map        | ConcurrentHashMap      | class     | AbstractMap,ConcurrentMap          | X         | O            | O           |
+| Map        | ConcurrentSkipListMap  | class     | AbstractMap,ConcurrentNavigableMap | O         | O            | X           |
+| Map        | TreeMap                | class     | AbstractMap,NavigableMap           | O         | O            | X           |
+| Queue      | ConcurrentLinkedQueue  | class     | AbstractQueue,Queue                | X         | O            | X           |
+| Queue      | PriorityQueue          | class     | AbstractQueue                      | X         | O            | X           |
+| Queue      | ArrayBlockingQueue     | class     | AbstractQueue,BlockingQueue        | X         | O            | X           |
+| Queue      | DelayQueue             | class     | AbstractQueue,BlockingQueue        | X         | X            | X           |
+| Queue      | LinkedBlockingQueue    | class     | AbstractQueue,BlockingQueue        | X         | O            | X           |
+| Queue      | SynchronousQueue       | class     | AbstractQueue,BlockingQueue        | X         | O            | X           |
+| Queue      | LinkedTransferQueue    | class     | AbstractQueue,TransferQueue        | X         | O            | X           |
+| Queue      | PriorityBlockingQueue  | class     | AbstractQueue,BlockingQueue        | X         | O            | X           |
+| Queue      | ArrayDeque             | class     | AbstractCollection,Deque           | O         | O            | X           |
+| Set        | CopyOnWriteArraySet    | class     | AbstractSet                        | X         | O            | X           |
+| Set        | JumboEnumSet           | class     | EnumSet                            | X         | X            | X           |
+| Set        | RegularEnumSet         | class     | EnumSet                            | X         | X            | X           |
+| Set        | HashSet                | class     | AbstractSet,Set                    | O         | O            | X           |
+| Set        | LinkedHashSet          | class     | HashSet,Set                        | O         | O            | X           |
+| Set        | ConcurrentSkipListSet  | class     | AbstractSet,NavigableSet           | O         | O            | X           |
+| Set        | TreeSet                | class     | AbstractSet,NavigableSet           | O         | O            | X           |
+| List       | List                   | interface |                                    |           |              |             |
+| List       | AbstractList           | interface | AbstractCollection,List            |           |              |             |
+| List       | AbstractSequentialList | abstract  | AbstractList                       |           |              |             |
+| Map        | Map                    | interface |                                    |           |              |             |
+| Map        | ConcurrentMap          | interface | Map                                |           |              |             |
+| Map        | SortedMap              | interface | Map                                |           |              |             |
+| Map        | NavigableMap           | interface | SortedMap                          |           |              |             |
+| Map        | ConcurrentNavigableMap | interface | ConcurrentMap,NavigableMap         |           |              |             |
+| Map        | AbstractMap            | abstract  | Map                                |           |              |             |
+| Queue      | Queue                  | interface | Collection                         |           |              |             |
+| Queue      | BlockingQueue          | interface | Queue                              |           |              |             |
+| Queue      | TransferQueue          | interface | BlockingQueue                      |           |              |             |
+| Queue      | Deque                  | interface | Queue                              |           |              |             |
+| Queue      | AbstractQueue          | abstract  | AbstractCollection,Queue           |           |              |             |
+| Set        | Set                    | interface | Collection                         |           |              |             |
+| Set        | SortedSet              | interface | Set                                |           |              |             |
+| Set        | NavigableSet           | interface | SortedSet                          |           |              |             |
+| Set        | AbstractSet            | abstract  | AbstractCollection,Set             |           |              |             |
+| Set        | EnumSet                | abstract  | AbstractSet                        | O         | O            |             |
+| Dictionary | Dictionary             | interface |                                    |           |              |             |
+| Iterator   | Iterator               | interface |                                    |           |              |             |
+| Iterator   | ListIterator           | interface | Iterator                           |           |              |             |
++------------+------------------------+-----------+------------------------------------+-----------+--------------+-------------+
+
+
+
+
 Benchmark                          Mode  Cnt       Score      Error   Units
 ListAdd.addArrayList               avgt    5   89474.958 ± 1889.671   ns/op   <br/>
 ListAdd.addLinkedList              avgt    5   93483.185 ± 3681.777   ns/op   <br/>
