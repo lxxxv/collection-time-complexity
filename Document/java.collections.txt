@@ -1,0 +1,55 @@
+\\ : interface
+\  : abstract
+
+Collections
+├─ Deque\\
+│  ├─ ArrayDeque
+├─ Dictionary\\
+│  ├─ Hashtable
+├─ Iterator\\
+│  ├─ ListIterator\\
+├─ List\\
+│  ├─ AbstractList\
+│  │  ├─ AbstractSequentialList\
+│  │  │  ├─ LinkedList
+│  │  ├─ ArrayList
+│  │  ├─ Vector
+│  ├─ CopyOnWriteArrayList
+├─ Map\\
+│  ├─ AbstractMap\
+│  │  ├─ EnumMap
+│  │  ├─ HashMap
+│  │  │  ├─ LinkedHashMap
+│  │  ├─ IdentityHashMap
+│  │  ├─ WeakHashMap
+│  ├─ ConcurrentMap\\
+│  │  ├─ ConcurrentHashMap
+│  ├─ SortedMap\\
+│  │  ├─ NavigableMap\\
+│  │  │  ├─ ConcurrentNavigableMap\\
+│  │  │  │  ├─ ConcurrentSkipListMap
+│  │  │  ├─ TreeMap
+├─ Queue\\
+│  ├─ AbstractQueue\
+│  │  ├─ ConcurrentLinkedQueue
+│  │  ├─ PriorityQueue
+│  ├─ BlockingQueue\\
+│  │  ├─ ArrayBlockingQueue
+│  │  ├─ DelayQueue
+│  │  ├─ LinkedBlockingQueue
+│  │  ├─ SynchronousQueue
+│  │  ├─ TransferQueue\\
+│  │  │  ├─ LinkedTransferQueue
+│  │  ├─ PriorityBlockingQueue
+├─ Set\\
+│  ├─ AbstractSet\
+│  │  ├─ CopyOnWriteArraySet
+│  │  ├─ EnumSet\
+│  │  │  ├─ JumboEnumSet
+│  │  │  ├─ RegularEnumSet
+│  │  ├─ HashSet
+│  │  │  ├─ LinkedHashSet
+│  ├─ SortedSet\\
+│  │  ├─ NavigableSet\\
+│  │  │  ├─ ConcurrentSkipListSet
+│  │  │  ├─ TreeSet
