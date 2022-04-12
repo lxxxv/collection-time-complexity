@@ -1,7 +1,5 @@
- : interface
-\  : abstract
-synchronized
 
+```
 Collections
 ├─ Deque
 │  ├─ ArrayDeque
@@ -113,5 +111,5 @@ Table
 | Iterator   | Iterator               | interface |                                    |           |              |             |
 | Iterator   | ListIterator           | interface | Iterator                           |           |              |             |
 +------------+------------------------+-----------+------------------------------------+-----------+--------------+-------------+
-
+```
 
